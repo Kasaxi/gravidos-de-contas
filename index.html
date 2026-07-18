@@ -6,14 +6,23 @@
 <title>Quiz: Você está preparado financeiramente para a chegada do bebê???</title>
 <meta name="description" content="Descubra em menos de 2 minutos como está a preparação financeira da sua família para a chegada do bebê e veja um plano simples para começar.">
 
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta name="theme-color" content="#285F4A">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="Você está financeiramente preparado para a chegada do bebê?">
 <meta property="og:description" content="Quiz gratuito de 2 minutos. Descubra seu nível de preparação e receba 3 prioridades práticas para organizar as contas antes do nascimento.">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Grávidos de Contas">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grávidos de Contas — quiz gratuito sobre preparação financeira para a chegada do bebê.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Você está financeiramente preparado para a chegada do bebê?">
 <meta name="twitter:description" content="Quiz gratuito de 2 minutos. Descubra seu nível de preparação e receba 3 prioridades práticas.">
+<meta name="twitter:image" content="og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -620,6 +629,62 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 }
 .copyright{font-size:.83rem;color:var(--text-soft)}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Grávidos de Contas — O guia financeiro para a chegada do primeiro filho sem sufoco",
+      "description": "Ebook digital em PDF que ensina, em linguagem simples, como preparar a vida financeira da família para a chegada do primeiro filho: quanto guardar, o que priorizar no enxoval, quais direitos verificar e onde deixar a reserva.",
+      "category": "Ebook",
+      "brand": { "@type": "Brand", "name": "Grávidos de Contas" },
+      "offers": {
+        "@type": "Offer",
+        "price": "67.90",
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que recebo após a compra?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Você recebe o ebook digital Grávidos de Contas, em formato PDF, com orientações, exemplos, tabelas, plano por trimestre e checklist final." }
+        },
+        {
+          "@type": "Question",
+          "name": "O ebook serve apenas para o primeiro filho?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ele foi pensado especialmente para a chegada do primeiro filho, mas também pode ajudar famílias que desejam reorganizar as finanças para um novo bebê." }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso entender de finanças?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Não. O conteúdo foi escrito para iniciantes e evita linguagem técnica desnecessária." }
+        },
+        {
+          "@type": "Question",
+          "name": "O ebook diz exatamente quanto vou gastar?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ele apresenta faixas e referências para ajudar no planejamento. Os valores reais podem variar conforme cidade, renda, saúde, escolhas e necessidades do bebê." }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso usar o guia mesmo tendo renda variável?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. O material explica como montar o planejamento com base na renda garantida e usar valores extras como aceleradores da reserva." }
+        },
+        {
+          "@type": "Question",
+          "name": "O conteúdo substitui orientação financeira ou previdenciária?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Não. O material tem caráter educativo. Regras, taxas e benefícios devem ser confirmados em fontes oficiais ou com profissionais responsáveis." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <main class="app" id="app">
@@ -1372,23 +1437,73 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 'use strict';
 
 /* =========================================================
-   1. CONFIGURAÇÃO — troque apenas esta linha pelo link real
+   1. CONFIGURAÇÃO — preencha antes de publicar
+   ---------------------------------------------------------
+   checkoutUrl : link do checkout de pagamento (OBRIGATÓRIO).
+                 Enquanto for 'CHECKOUT_URL', os botões de
+                 compra ficam inativos e avisam no console.
+   ga4Id       : ID do Google Analytics 4 (ex.: 'G-XXXXXXXXXX').
+   metaPixelId : ID do Meta Pixel (ex.: '1234567890123456').
+   Deixe ga4Id/metaPixelId em branco para não carregar rastreamento.
    ========================================================= */
-const CHECKOUT_URL = 'CHECKOUT_URL';
+const CONFIG = {
+  checkoutUrl: 'CHECKOUT_URL',
+  ga4Id: '',
+  metaPixelId: ''
+};
+
+const CHECKOUT_URL = CONFIG.checkoutUrl;
+const CHECKOUT_READY = !!CHECKOUT_URL && CHECKOUT_URL !== 'CHECKOUT_URL';
 
 /* =========================================================
    2. ANALYTICS
-   Pontos de disparo prontos. Conecte aqui sua ferramenta
-   (GA4, Meta Pixel, etc.). Hoje apenas registra no console.
+   GA4 e Meta Pixel são carregados apenas se os IDs estiverem
+   preenchidos no CONFIG. O track() replica cada evento para as
+   duas ferramentas (e no console, útil em desenvolvimento).
    Eventos: quiz_started, quiz_question_answered, quiz_completed,
    lead_submitted, lead_skipped, result_viewed, offer_viewed,
-   checkout_clicked, faq_opened
+   checkout_clicked, faq_opened, interlude_viewed
    ========================================================= */
+function loadGA4(id){
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', id);
+}
+
+function loadMetaPixel(id){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  window.fbq('init', id);
+  window.fbq('track', 'PageView');
+}
+
+if (CONFIG.ga4Id) loadGA4(CONFIG.ga4Id);
+if (CONFIG.metaPixelId) loadMetaPixel(CONFIG.metaPixelId);
+
+/* Espelha alguns eventos do funil nos eventos padrão do Meta Pixel,
+   que ajudam a otimização das campanhas. */
+const PIXEL_STANDARD = {
+  lead_submitted:   'Lead',
+  result_viewed:    'ViewContent',
+  checkout_clicked: 'InitiateCheckout'
+};
+
 function track(event, params){
   const payload = params || {};
-  // GA4:        window.gtag && gtag('event', event, payload);
-  // Meta Pixel: window.fbq && fbq('trackCustom', event, payload);
-  // dataLayer:  (window.dataLayer = window.dataLayer || []).push({event, ...payload});
+  if (window.gtag) window.gtag('event', event, payload);
+  if (window.fbq){
+    const std = PIXEL_STANDARD[event];
+    if (std) window.fbq('track', std, payload);
+    window.fbq('trackCustom', event, payload);
+  }
   if (window.console && console.debug) console.debug('[analytics]', event, payload);
 }
 
@@ -1979,8 +2094,20 @@ document.querySelectorAll('.acc-btn').forEach(btn => {
    13. CHECKOUT — todos os botões usam CHECKOUT_URL
    ========================================================= */
 document.querySelectorAll('[data-checkout]').forEach(link => {
-  link.href = CHECKOUT_URL;
-  link.addEventListener('click', () => {
+  if (CHECKOUT_READY){
+    link.href = CHECKOUT_URL;
+  } else {
+    link.setAttribute('href', '#');
+    link.setAttribute('aria-disabled', 'true');
+  }
+  link.addEventListener('click', (e) => {
+    if (!CHECKOUT_READY){
+      e.preventDefault();
+      if (window.console && console.warn){
+        console.warn('[checkout] CONFIG.checkoutUrl ainda não foi configurado — troque o valor no topo do <script>.');
+      }
+      return;
+    }
     track('checkout_clicked', {
       origem: link.dataset.cta || 'desconhecida',
       price: 67.90,

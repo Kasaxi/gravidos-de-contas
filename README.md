@@ -20,14 +20,46 @@ O endereço fica em **Settings → Pages**.
 
 ## ⚠️ Antes de começar a vender
 
-Trocar os placeholders dentro do `index.html`:
+### 1. Link do checkout e rastreamento
 
-| Placeholder | O que é | Onde está |
-|---|---|---|
-| `CHECKOUT_URL` | Link do checkout de pagamento | Uma constante no topo do `<script>` — todos os botões de compra usam ela |
-| `PRIVACY_URL` | Link da política de privacidade | Rodapé |
-| `TERMS_URL` | Link dos termos de uso | Rodapé |
-| `CONTACT_URL` | Link/página de contato | Rodapé |
+No topo do `<script>`, no fim do `index.html`, há um bloco `CONFIG`. Preencha:
+
+```js
+const CONFIG = {
+  checkoutUrl: 'CHECKOUT_URL',   // link do checkout de pagamento (obrigatório)
+  ga4Id: '',                     // ID do Google Analytics 4, ex.: 'G-XXXXXXXXXX'
+  metaPixelId: ''                // ID do Meta Pixel, ex.: '1234567890123456'
+};
+```
+
+- **`checkoutUrl`** — obrigatório. Todos os botões de compra usam ele. Enquanto
+  continuar `'CHECKOUT_URL'`, os botões ficam inativos e avisam no console (assim
+  ninguém cai numa página quebrada durante os testes).
+- **`ga4Id` / `metaPixelId`** — opcionais. Se preenchidos, o GA4 e/ou o Meta Pixel
+  são carregados automaticamente e recebem todos os eventos do funil. Se deixados
+  em branco, nenhum rastreamento externo é carregado. Os eventos-chave já são
+  mapeados para os eventos padrão do Pixel (`Lead`, `ViewContent`,
+  `InitiateCheckout`), úteis para otimizar campanhas.
+
+### 2. Links do rodapé
+
+Trocar os placeholders no rodapé do `index.html`:
+
+| Placeholder | O que é |
+|---|---|
+| `PRIVACY_URL` | Link da política de privacidade |
+| `TERMS_URL` | Link dos termos de uso |
+| `CONTACT_URL` | Link/página de contato |
+
+## Arquivos
+
+- **`index.html`** — a página inteira (HTML, CSS e JS, sem dependências além da fonte).
+- **`favicon.svg`** — ícone da aba do navegador.
+- **`og-image.png`** — imagem de pré-visualização ao compartilhar o link (WhatsApp,
+  Instagram, anúncios). Já referenciada no `<head>`. Ao publicar num domínio
+  próprio, o ideal é apontar as tags `og:image`/`twitter:image` para a **URL
+  absoluta** da imagem (ex.: `https://seusite.com/og-image.png`) — alguns
+  aplicativos exigem o endereço completo.
 
 ## Observações
 
