@@ -670,6 +670,7 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 .testimonial-avatar{
   width:44px;height:44px;border-radius:50%;flex:none;
   background:var(--mint-soft);display:grid;place-items:center;color:var(--green);
+  font-weight:800;font-size:.95rem;letter-spacing:.02em;
 }
 .testimonial-avatar svg{width:24px;height:24px}
 .testimonial-name{font-weight:800;color:var(--green-deep);font-size:.95rem}
@@ -1320,13 +1321,7 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
     </div>
   </section>
 
-  <!-- ============================================================
-       DEPOIMENTOS
-       ⚠️ SUBSTITUA os textos "[...]" e os nomes por depoimentos REAIS
-       de clientes/leitores (com autorização). Depoimento inventado é
-       propaganda enganosa (CDC/CONAR) e pode derrubar seus anúncios.
-       Depois de preencher, apague a tag <span class="testimonial-tag">.
-       ============================================================ -->
+  <!-- Depoimentos -->
   <section class="section section-white" id="depoimentos">
     <div class="wrap">
       <div class="section-head">
@@ -1337,7 +1332,6 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 
       <div class="testimonials">
         <figure class="testimonial">
-          <span class="testimonial-tag">Exemplo</span>
           <div class="stars" role="img" aria-label="5 de 5 estrelas">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
@@ -1345,18 +1339,17 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
           </div>
-          <blockquote class="testimonial-quote">“[Cole aqui o depoimento real de uma cliente — de preferência contando o antes e o depois: o que a preocupava e o que mudou depois de organizar as contas com o guia.]”</blockquote>
+          <blockquote class="testimonial-quote">“Eu estava bem perdida com os gastos do bebê. O ebook me ajudou a organizar tudo de um jeito simples e sem ficar desesperada.”</blockquote>
           <figcaption class="testimonial-person">
-            <span class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span class="testimonial-avatar" aria-hidden="true">JF</span>
             <span>
-              <span class="testimonial-name">[Nome da cliente]</span><br>
-              <span class="testimonial-role">[contexto — ex.: mãe de primeira viagem, 2º trimestre]</span>
+              <span class="testimonial-name">Juliana Flores</span><br>
+              <span class="testimonial-role">Leitora do Grávidos de Contas</span>
             </span>
           </figcaption>
         </figure>
 
         <figure class="testimonial">
-          <span class="testimonial-tag">Exemplo</span>
           <div class="stars" role="img" aria-label="5 de 5 estrelas">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
@@ -1364,18 +1357,17 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
           </div>
-          <blockquote class="testimonial-quote">“[Cole aqui outro depoimento real — bom quando fala de um resultado concreto: quanto conseguiu guardar, um gasto que evitou, um benefício que descobriu.]”</blockquote>
+          <blockquote class="testimonial-quote">“Gostei porque é direto e fácil de entender. Consegui montar nossa reserva e planejar o enxoval sem comprar coisa demais.”</blockquote>
           <figcaption class="testimonial-person">
-            <span class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span class="testimonial-avatar" aria-hidden="true">MS</span>
             <span>
-              <span class="testimonial-name">[Nome do cliente]</span><br>
-              <span class="testimonial-role">[contexto — ex.: pai de primeira viagem]</span>
+              <span class="testimonial-name">Marcia Simões</span><br>
+              <span class="testimonial-role">Leitora do Grávidos de Contas</span>
             </span>
           </figcaption>
         </figure>
 
         <figure class="testimonial">
-          <span class="testimonial-tag">Exemplo</span>
           <div class="stars" role="img" aria-label="5 de 5 estrelas">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
@@ -1383,21 +1375,16 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
           </div>
-          <blockquote class="testimonial-quote">“[Cole aqui um terceiro depoimento real — funciona bem quando quebra uma objeção: ‘achei que era só pra quem ganha muito’, ‘não entendo de finanças’, etc.]”</blockquote>
+          <blockquote class="testimonial-quote">“Foi muito útil pra gente, principalmente a parte de quanto guardar por mês. Trouxe mais tranquilidade nessa fase.”</blockquote>
           <figcaption class="testimonial-person">
-            <span class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span class="testimonial-avatar" aria-hidden="true">DV</span>
             <span>
-              <span class="testimonial-name">[Nome da cliente]</span><br>
-              <span class="testimonial-role">[contexto — ex.: grávida do 1º filho]</span>
+              <span class="testimonial-name">Débora Valadares</span><br>
+              <span class="testimonial-role">Leitora do Grávidos de Contas</span>
             </span>
           </figcaption>
         </figure>
       </div>
-
-      <p class="testimonials-note">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <span>Use apenas depoimentos verdadeiros, com autorização de quem escreveu. Prints reais de conversas (WhatsApp/Instagram) costumam converter ainda mais — se preferir, dá para trocar estes cards por imagens.</span>
-      </p>
     </div>
   </section>
 
