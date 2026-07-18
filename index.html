@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz: Você está preparado financeiramente para a chegada do bebê?</title>
+<meta name="description" content="Descubra em menos de 2 minutos como está a preparação financeira da sua família para a chegada do bebê e veja um plano simples para começar.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Você está financeiramente preparado para a chegada do bebê?">
+<meta property="og:description" content="Quiz gratuito de 2 minutos. Descubra seu nível de preparação e receba 3 prioridades práticas para organizar as contas antes do nascimento.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Grávidos de Contas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Você está financeiramente preparado para a chegada do bebê?">
+<meta name="twitter:description" content="Quiz gratuito de 2 minutos. Descubra seu nível de preparação e receba 3 prioridades práticas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --mint:#78BFA3;
+  --mint-soft:#E4F1EB;
+  --green:#285F4A;
+  --green-deep:#1D4536;
+  --terracota:#D9826B;          /* acentos e ilustração (não-texto) */
+  --terracota-cta:#C05130;      /* mesma matiz, escurecida: 4.70:1 com texto branco */
+  --terracota-cta-hover:#A64528;
+  --terracota-light:#F1B7A5;
+  --terracota-soft:#FBEAE4;
+  --brick:#AE4B32;              /* terracota legível como texto: 4.67:1 no soft */
+  --gold:#D9A85F;
+  --gold-soft:#FAF0DE;
+  --offwhite:#FAF7F2;
+  --text:#37403B;
+  --text-soft:#636D68;          /* passa 4.5:1 em branco, off-white, menta, dourado e terracota claros */
+  --white:#FFFFFF;
+  --line:#E8E2D9;
+  --radius:20px;
+  --radius-sm:14px;
+  --shadow:0 4px 24px rgba(40,95,74,.07);
+  --shadow-lg:0 12px 40px rgba(40,95,74,.12);
+  --maxw:1080px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--offwhite);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+img,svg{max-width:100%;display:block}
+
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+a{color:inherit}
+
+:focus-visible{
+  outline:3px solid var(--green);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.wrap-narrow{max-width:760px}
+
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* ---------- Tipografia ---------- */
+h1,h2,h3{line-height:1.22;letter-spacing:-.02em;color:var(--green-deep);font-weight:800}
+h1{font-size:clamp(1.75rem,5.2vw,2.85rem)}
+h2{font-size:clamp(1.5rem,4.2vw,2.25rem)}
+h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
+
+.eyebrow{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--green);
+  background:var(--mint-soft);
+  padding:8px 16px;
+  border-radius:999px;
+}
+
+.lead{font-size:clamp(1rem,2.4vw,1.13rem);color:var(--text-soft)}
+
+/* ---------- Botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:800;font-size:1.05rem;
+  padding:17px 32px;
+  border-radius:999px;
+  text-decoration:none;
+  transition:transform .15s ease,box-shadow .2s ease,background-color .2s ease;
+  text-align:center;
+}
+.btn:active{transform:translateY(1px)}
+
+.btn-primary{
+  background:var(--green);color:var(--white);
+  box-shadow:0 6px 18px rgba(40,95,74,.28);
+}
+.btn-primary:hover{background:var(--green-deep);box-shadow:0 8px 24px rgba(40,95,74,.34)}
+
+.btn-buy{
+  background:var(--terracota-cta);color:var(--white);
+  box-shadow:0 6px 18px rgba(192,81,48,.34);
+  font-size:1.1rem;
+}
+.btn-buy:hover{background:var(--terracota-cta-hover);box-shadow:0 10px 28px rgba(192,81,48,.42)}
+
+.btn-ghost{
+  background:transparent;color:var(--text-soft);
+  font-weight:700;font-size:.95rem;padding:14px 22px;
+  border-radius:999px;
+}
+.btn-ghost:hover{color:var(--green);background:var(--mint-soft)}
+
+.btn-block{width:100%}
+
+.btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+.btn:disabled:hover{transform:none}
+
+.microcopy{font-size:.86rem;color:var(--text-soft);margin-top:14px}
+
+/* ---------- App / telas ---------- */
+.app{
+  min-height:100svh;
+  display:flex;align-items:center;
+  padding:40px 0 56px;
+  background:
+    radial-gradient(1100px 520px at 82% -8%,var(--mint-soft) 0%,transparent 62%),
+    radial-gradient(760px 420px at 5% 105%,var(--terracota-soft) 0%,transparent 60%);
+}
+
+.screen{display:none;width:100%;animation:fade .38s ease both}
+.screen.is-active{display:block}
+
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  display:grid;gap:40px;align-items:center;
+  grid-template-columns:1fr;
+}
+@media(min-width:900px){
+  .hero{grid-template-columns:1.05fr .95fr;gap:56px}
+}
+
+.hero h1{margin:20px 0 16px}
+.hero .lead{margin-bottom:28px;max-width:52ch}
+
+.perks{
+  display:flex;flex-direction:column;gap:14px;
+  margin-bottom:32px;
+}
+@media(min-width:560px){.perks{flex-direction:row;flex-wrap:wrap;gap:12px}}
+
+.perk{
+  display:flex;align-items:center;gap:10px;
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 18px 10px 12px;
+  font-size:.9rem;font-weight:700;
+  box-shadow:var(--shadow);
+}
+.perk svg{width:20px;height:20px;color:var(--mint);flex:none}
+
+.hero-art{
+  background:var(--white);
+  border-radius:28px;
+  padding:20px;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--line);
+}
+
+/* ---------- Quiz ---------- */
+.quiz-card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  padding:28px 22px 26px;
+}
+@media(min-width:700px){.quiz-card{padding:40px}}
+
+.progress-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:14px;margin-bottom:12px;
+  font-size:.85rem;font-weight:800;color:var(--green);
+}
+.progress-head .hint{color:var(--text-soft);font-weight:600;font-size:.8rem}
+
+.bar{
+  height:9px;background:var(--mint-soft);
+  border-radius:999px;overflow:hidden;margin-bottom:30px;
+}
+.bar span{
+  display:block;height:100%;
+  background:linear-gradient(90deg,var(--mint),var(--green));
+  border-radius:999px;
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+}
+
+.q-title{margin-bottom:8px}
+.q-sub{font-size:.9rem;color:var(--text-soft);margin-bottom:24px}
+
+.options{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+
+.opt{
+  display:flex;align-items:center;gap:14px;
+  width:100%;text-align:left;
+  background:var(--white);
+  border:2px solid var(--line);
+  border-radius:var(--radius-sm);
+  padding:17px 18px;
+  font-size:1rem;font-weight:700;color:var(--text);
+  transition:border-color .18s ease,background-color .18s ease,transform .12s ease;
+}
+.opt:hover{border-color:var(--mint);background:var(--mint-soft)}
+.opt:active{transform:scale(.99)}
+
+.opt .tick{
+  flex:none;width:24px;height:24px;border-radius:50%;
+  border:2px solid var(--line);
+  display:grid;place-items:center;
+  transition:border-color .18s ease,background-color .18s ease;
+}
+.opt .tick svg{width:14px;height:14px;color:var(--white);opacity:0;transition:opacity .15s ease}
+
+.opt[aria-checked="true"]{border-color:var(--green);background:var(--mint-soft)}
+.opt[aria-checked="true"] .tick{border-color:var(--green);background:var(--green)}
+.opt[aria-checked="true"] .tick svg{opacity:1}
+
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* ---------- Intervalos de copy entre as perguntas ---------- */
+.interlude{text-align:center}
+.interlude h2{font-size:clamp(1.3rem,3.6vw,1.75rem);margin:18px 0 14px}
+.interlude-art{
+  width:100%;max-width:400px;margin:22px auto 4px;
+  height:auto;
+}
+.interlude-text{
+  color:var(--text-soft);max-width:52ch;margin:0 auto 24px;
+  font-size:1.02rem;
+}
+.interlude-note{
+  font-weight:800;color:var(--green-deep);margin:22px 0 24px;
+  font-size:1rem;
+}
+
+.datapoint{
+  background:var(--terracota-soft);
+  border-radius:var(--radius-sm);
+  padding:24px 22px;
+  text-align:left;
+}
+.datapoint-green{background:var(--mint-soft)}
+.datapoint-num{
+  font-size:clamp(2.2rem,7vw,2.9rem);
+  font-weight:800;line-height:1;letter-spacing:-.03em;
+  color:var(--brick);margin-bottom:10px;
+}
+.datapoint-green .datapoint-num{color:var(--green)}
+.datapoint-desc{font-weight:700;color:var(--text);margin-bottom:12px}
+.datapoint-src{
+  font-size:.78rem;color:var(--text-soft);line-height:1.5;
+  padding-top:11px;border-top:1px solid rgba(55,64,59,.12);
+}
+.datapoint-src a{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:5px 0;min-height:24px;          /* área de toque confortável no celular */
+  font-weight:800;color:var(--green);
+  text-decoration:underline;text-underline-offset:2px;
+}
+.datapoint-src a:hover{color:var(--green-deep)}
+.datapoint-src a svg{width:12px;height:12px;flex:none}
+
+/* ---------- Lead ---------- */
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:800;font-size:.9rem;margin-bottom:7px}
+.opcional{
+  font-weight:700;font-size:.74rem;color:var(--text-soft);
+  background:var(--offwhite);border:1px solid var(--line);
+  padding:2px 8px;border-radius:999px;margin-left:6px;
+  text-transform:lowercase;letter-spacing:.02em;
+}
+.field input{
+  width:100%;font-family:inherit;font-size:1rem;
+  padding:15px 16px;
+  border:2px solid var(--line);
+  border-radius:var(--radius-sm);
+  background:var(--offwhite);
+  color:var(--text);
+  transition:border-color .18s ease,background-color .18s ease;
+}
+.field input:focus{outline:none;border-color:var(--green);background:var(--white)}
+.field input[aria-invalid="true"]{border-color:var(--terracota);background:var(--terracota-soft)}
+.field .err{
+  display:none;font-size:.82rem;font-weight:700;color:var(--brick);margin-top:7px;
+}
+.field .err.show{display:block}
+
+.consent{
+  display:flex;gap:12px;align-items:flex-start;
+  font-size:.86rem;color:var(--text-soft);
+  margin:6px 0 22px;cursor:pointer;line-height:1.5;
+}
+.consent input{
+  flex:none;width:22px;height:22px;margin-top:1px;
+  accent-color:var(--green);cursor:pointer;
+}
+
+.skip{
+  display:block;width:100%;text-align:center;
+  margin-top:16px;font-size:.9rem;font-weight:700;
+  color:var(--text-soft);text-decoration:underline;
+  text-underline-offset:3px;padding:8px;
+}
+.skip:hover{color:var(--green)}
+
+/* ---------- Processando ---------- */
+.loading{text-align:center;padding:56px 20px}
+.spinner{
+  width:58px;height:58px;margin:0 auto 26px;
+  border:5px solid var(--mint-soft);
+  border-top-color:var(--green);
+  border-radius:50%;
+  animation:spin .9s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-msg{font-size:1.08rem;font-weight:800;color:var(--green-deep);min-height:1.6em}
+
+/* ---------- Resultado ---------- */
+.result-card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-top:6px solid var(--tier,var(--mint));
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  padding:30px 22px;
+}
+@media(min-width:700px){.result-card{padding:42px}}
+
+.tier-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--tier-soft,var(--mint-soft));
+  color:var(--tier-text,var(--green));
+  font-weight:800;font-size:.78rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 16px;border-radius:999px;
+}
+.tier-name{color:var(--tier-text,var(--green-deep));margin:16px 0 4px}
+
+.gauge{margin:26px 0 30px}
+.gauge-top{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:9px;
+}
+.gauge-score{font-weight:800;color:var(--tier-text,var(--green));font-size:1rem}
+.gauge-score b{font-size:1.85rem;line-height:1}
+.gauge-max{font-size:.82rem;color:var(--text-soft);font-weight:700}
+.gauge-track{height:14px;background:var(--offwhite);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.gauge-fill{
+  height:100%;background:var(--tier,var(--mint));
+  border-radius:999px;width:0;
+  transition:width 1.1s cubic-bezier(.4,0,.2,1);
+}
+.gauge-scale{
+  display:flex;justify-content:space-between;
+  font-size:.72rem;color:var(--text-soft);font-weight:700;margin-top:8px;
+}
+
+.result-msg{font-size:1.06rem;margin-bottom:24px}
+
+.phase-note{
+  display:flex;gap:13px;align-items:flex-start;
+  background:var(--mint-soft);
+  border-left:4px solid var(--mint);
+  border-radius:var(--radius-sm);
+  padding:17px 19px;margin-bottom:24px;
+  font-weight:700;color:var(--green-deep);
+}
+.phase-note svg{width:22px;height:22px;flex:none;color:var(--green);margin-top:2px}
+
+.risk{
+  background:var(--terracota-soft);
+  border-radius:var(--radius-sm);
+  padding:20px;margin-bottom:24px;
+}
+.risk h3{
+  display:flex;align-items:center;gap:9px;
+  font-size:.79rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--brick);margin-bottom:9px;
+}
+.risk h3 svg{width:19px;height:19px;flex:none}
+.risk p{color:var(--text)}
+
+.priorities{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:8px}
+.priorities li{display:flex;gap:14px;align-items:flex-start}
+.priorities .num{
+  flex:none;width:31px;height:31px;border-radius:50%;
+  background:var(--green);color:var(--white);
+  font-weight:800;font-size:.9rem;
+  display:grid;place-items:center;
+}
+.priorities li span:last-child{padding-top:3px;font-weight:600}
+
+.block-title{
+  font-size:.79rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--green);font-weight:800;margin-bottom:14px;
+}
+
+.bridge{
+  margin-top:26px;padding-top:24px;border-top:1px dashed var(--line);
+  font-weight:700;color:var(--green-deep);font-size:1.04rem;
+}
+
+.result-actions{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+@media(min-width:560px){.result-actions{flex-direction:row;align-items:center}}
+
+/* ---------- Seções ---------- */
+.section{padding:68px 0}
+@media(min-width:700px){.section{padding:88px 0}}
+.section-white{background:var(--white)}
+.section-mint{background:var(--mint-soft)}
+.section-green{background:var(--green-deep);color:var(--offwhite)}
+.section-green h2,.section-green h3{color:var(--white)}
+
+.section-head{text-align:center;max-width:640px;margin:0 auto 44px}
+.section-head h2{margin:16px 0 14px}
+.section-head .lead{margin:0 auto}
+.section-green .lead{color:#C9DAD2}
+
+/* ---------- Transição ---------- */
+.transition{text-align:center;max-width:660px;margin:0 auto}
+.transition h2{margin-bottom:18px}
+
+/* ---------- Dados / autoridade ---------- */
+.stats{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:800px){.stats{grid-template-columns:repeat(3,1fr);gap:20px}}
+
+.stat-card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-top:5px solid var(--brick);
+  border-radius:var(--radius);
+  padding:26px 22px;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+}
+.stat-card-good{border-top-color:var(--mint)}
+.stat-num{
+  font-size:clamp(2.1rem,5.5vw,2.6rem);
+  font-weight:800;line-height:1;letter-spacing:-.03em;
+  color:var(--brick);margin-bottom:12px;
+}
+.stat-card-good .stat-num{color:var(--green)}
+.stat-desc{font-weight:700;color:var(--text);margin-bottom:16px;flex:1}
+.stat-src{
+  font-size:.76rem;color:var(--text-soft);line-height:1.6;
+  padding-top:13px;border-top:1px solid var(--line);
+}
+.stat-src a{
+  display:inline-flex;align-items:center;gap:4px;margin-top:2px;
+  padding:5px 0;min-height:24px;          /* área de toque confortável no celular */
+  font-weight:800;color:var(--green);
+  text-decoration:underline;text-underline-offset:2px;
+}
+.stat-src a:hover{color:var(--green-deep)}
+.stat-src a svg{width:12px;height:12px;flex:none}
+
+.stats-note{
+  display:flex;gap:11px;align-items:flex-start;
+  max-width:720px;margin:30px auto 0;
+  font-size:.85rem;line-height:1.6;color:var(--text-soft);
+}
+.stats-note svg{width:19px;height:19px;flex:none;color:var(--green);margin-top:2px}
+
+/* ---------- Oferta ---------- */
+.offer{display:grid;gap:44px;align-items:center;grid-template-columns:1fr}
+@media(min-width:900px){.offer{grid-template-columns:.85fr 1.15fr;gap:56px}}
+
+.benefits{list-style:none;display:flex;flex-direction:column;gap:15px;margin-top:28px}
+.benefits li{display:flex;gap:13px;align-items:flex-start;font-weight:600}
+.benefits svg{
+  width:23px;height:23px;flex:none;color:var(--mint);margin-top:2px;
+}
+
+/* ---------- Preço ---------- */
+.price-card{
+  background:var(--white);
+  border:2px solid var(--mint);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  padding:36px 26px;
+  text-align:center;
+  max-width:480px;margin:0 auto;
+}
+.price-top{font-weight:800;color:var(--green);font-size:.95rem;margin-bottom:6px}
+.price-value{
+  font-size:clamp(2.6rem,8vw,3.4rem);
+  font-weight:800;color:var(--green-deep);
+  letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;
+}
+.price-note{font-size:.94rem;color:var(--text-soft);margin-bottom:26px}
+
+/* ---------- Identificação ---------- */
+.quotes{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:800px){.quotes{grid-template-columns:repeat(3,1fr)}}
+.quote{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--radius-sm);
+  padding:24px;
+  font-size:1.02rem;font-weight:700;
+  color:var(--white);
+}
+.quote svg{width:26px;height:26px;color:var(--mint);margin-bottom:12px}
+
+/* ---------- Comparativo ---------- */
+.compare{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:780px){.compare{grid-template-columns:1fr 1fr;gap:22px}}
+.col{
+  border-radius:var(--radius);
+  padding:28px 24px;
+  border:1px solid var(--line);
+  background:var(--white);
+}
+.col-bad{background:var(--terracota-soft);border-color:var(--terracota-light)}
+.col-good{background:var(--white);border:2px solid var(--mint)}
+.col h3{
+  display:flex;align-items:center;gap:10px;
+  font-size:1.08rem;margin-bottom:18px;
+}
+.col-bad h3{color:var(--brick)}
+.col h3 svg{width:24px;height:24px;flex:none}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.col li{display:flex;gap:11px;align-items:flex-start;font-weight:600;font-size:.98rem}
+.col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.col-bad li svg{color:var(--terracota)}
+.col-good li svg{color:var(--mint)}
+
+/* ---------- Acordeão ---------- */
+.accordion{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto}
+.acc-item{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.acc-item[data-open="true"]{border-color:var(--mint);box-shadow:var(--shadow)}
+.acc-btn{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  width:100%;text-align:left;
+  padding:20px 22px;
+  font-weight:800;font-size:1rem;color:var(--green-deep);
+}
+.acc-btn:hover{color:var(--green)}
+.acc-btn .chev{
+  flex:none;width:22px;height:22px;color:var(--mint);
+  transition:transform .25s ease;
+}
+.acc-item[data-open="true"] .chev{transform:rotate(180deg)}
+.acc-panel{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .28s ease;
+}
+.acc-item[data-open="true"] .acc-panel{grid-template-rows:1fr}
+.acc-panel>div{overflow:hidden}
+.acc-panel p{padding:0 22px 22px;color:var(--text-soft)}
+
+/* ---------- CTA final ---------- */
+.final{text-align:center;max-width:660px;margin:0 auto}
+.final h2{margin-bottom:18px}
+.final .lead{color:#C9DAD2;margin-bottom:30px}
+.final-price{
+  font-size:2.4rem;font-weight:800;color:var(--white);
+  margin-bottom:24px;letter-spacing:-.02em;
+}
+
+/* ---------- Rodapé ---------- */
+.footer{background:var(--white);border-top:1px solid var(--line);padding:48px 0 40px}
+.footer-brand{font-weight:800;color:var(--green-deep);font-size:1.15rem;margin-bottom:6px}
+.footer-sub{font-size:.9rem;color:var(--text-soft);margin-bottom:22px}
+.footer-links{
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:.9rem;font-weight:700;margin-bottom:26px;
+}
+.footer-links a{color:var(--green);text-decoration:none}
+.footer-links a:hover{text-decoration:underline;text-underline-offset:3px}
+.disclaimer{
+  background:var(--offwhite);
+  border-left:4px solid var(--mint);
+  border-radius:var(--radius-sm);
+  padding:18px 20px;
+  font-size:.83rem;color:var(--text-soft);line-height:1.65;
+  margin-bottom:22px;
+}
+.copyright{font-size:.83rem;color:var(--text-soft)}
+</style>
+</head>
+<body>
+<main class="app" id="app">
+  <div class="wrap">
+
+    <!-- ============ TELA 1 — INICIAL ============ -->
+    <section class="screen is-active" id="screen-intro" aria-labelledby="intro-title">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">Quiz gratuito • Menos de 2 minutos</span>
+          <h1 id="intro-title">Você está financeiramente preparado para a chegada do bebê?</h1>
+          <p class="lead">Responda algumas perguntas rápidas e descubra o que sua família precisa organizar antes do nascimento — sem planilhas complicadas, sem terrorismo financeiro e sem precisar entender de investimentos.</p>
+
+          <ul class="perks">
+            <li class="perk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Diagnóstico personalizado
+            </li>
+            <li class="perk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/></svg>
+              Prioridades para começar agora
+            </li>
+            <li class="perk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Resultado em menos de 2 minutos
+            </li>
+          </ul>
+
+          <button class="btn btn-primary" id="btn-start" type="button">
+            Descobrir meu nível de preparação
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="microcopy">Gratuito, rápido e sem julgamentos.</p>
+        </div>
+
+        <div class="hero-art">
+          <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="artTitle artDesc">
+            <title id="artTitle">Casal se organizando para a chegada do bebê</title>
+            <desc id="artDesc">Ilustração de um casal jovem, com a mulher grávida e o companheiro ao lado, sentados a uma mesa com papéis, uma calculadora e um cofrinho de porquinho.</desc>
+
+            <!-- fundo -->
+            <circle cx="260" cy="188" r="178" fill="#E4F1EB"/>
+            <circle cx="86" cy="72" r="10" fill="#F1B7A5"/>
+            <circle cx="452" cy="98" r="14" fill="#78BFA3" opacity=".55"/>
+            <circle cx="430" cy="52" r="6" fill="#D9A85F"/>
+            <circle cx="62" cy="158" r="6" fill="#78BFA3"/>
+
+            <!-- MULHER -->
+            <ellipse cx="205" cy="172" rx="33" ry="43" fill="#3F332C"/>
+            <circle cx="205" cy="158" r="26" fill="#F1C9A5"/>
+            <path d="M179 158a26 26 0 0 1 52 0c-6-10-16-14-26-14s-20 4-26 14Z" fill="#3F332C"/>
+            <rect x="197" y="177" width="16" height="16" fill="#E8B892"/>
+            <path d="M176 206q2-14 20-17h18q18 3 20 17l5 38q11 24 9 52-2 26-6 44h-76q-4-18-6-44-2-28 9-52Z" fill="#F1B7A5"/>
+            <path d="M231 212q22 40 4 78" stroke="#F1B7A5" stroke-width="17" fill="none" stroke-linecap="round"/>
+            <circle cx="234" cy="294" r="9" fill="#F1C9A5"/>
+            <path d="M170 244q-14 26-10 54" stroke="#F1B7A5" stroke-width="16" fill="none" stroke-linecap="round"/>
+
+            <!-- HOMEM -->
+            <circle cx="325" cy="163" r="25" fill="#B87F5A"/>
+            <path d="M300 161a25 25 0 0 1 50 0c-5-11-15-15-25-15s-20 4-25 15Z" fill="#2F2620"/>
+            <rect x="317" y="181" width="15" height="15" fill="#9C6A4A"/>
+            <path d="M295 212q3-14 21-17h18q18 3 21 17l6 48v80h-72v-80Z" fill="#78BFA3"/>
+            <path d="M299 214q-30-16-58-8" stroke="#78BFA3" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <circle cx="240" cy="207" r="9" fill="#B87F5A"/>
+            <path d="M356 246q14 24 10 50" stroke="#78BFA3" stroke-width="16" fill="none" stroke-linecap="round"/>
+
+            <!-- MESA -->
+            <rect x="34" y="336" width="452" height="15" rx="7.5" fill="#E0D5C6"/>
+            <rect x="74" y="351" width="13" height="46" rx="4" fill="#D3C6B4"/>
+            <rect x="433" y="351" width="13" height="46" rx="4" fill="#D3C6B4"/>
+
+            <!-- COFRINHO -->
+            <circle cx="112" cy="264" r="10" fill="#D9A85F"/>
+            <circle cx="112" cy="264" r="4.5" fill="#C4913F"/>
+            <rect x="98" y="282" width="28" height="6" rx="3" fill="#C86F58"/>
+            <rect x="82" y="326" width="12" height="12" rx="3" fill="#E8A38C"/>
+            <rect x="130" y="326" width="12" height="12" rx="3" fill="#E8A38C"/>
+            <ellipse cx="112" cy="306" rx="40" ry="31" fill="#F1B7A5"/>
+            <path d="M126 280q10-6 16 2-8 4-11 12Z" fill="#E8A38C"/>
+            <ellipse cx="150" cy="309" rx="11" ry="9" fill="#E8A38C"/>
+            <circle cx="152" cy="306" r="2" fill="#B4543B"/>
+            <circle cx="152" cy="312" r="2" fill="#B4543B"/>
+            <circle cx="130" cy="300" r="3" fill="#37403B"/>
+            <path d="M74 312q-8 4-6 14" stroke="#E8A38C" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+            <!-- PAPÉIS -->
+            <g transform="rotate(-7 276 314)">
+              <rect x="243" y="292" width="54" height="44" rx="4" fill="#FAF7F2"/>
+            </g>
+            <g transform="rotate(4 288 312)">
+              <rect x="258" y="288" width="54" height="48" rx="4" fill="#FFFFFF"/>
+              <rect x="266" y="297" width="38" height="4" rx="2" fill="#78BFA3"/>
+              <rect x="266" y="307" width="30" height="3.5" rx="1.75" fill="#E0D5C6"/>
+              <rect x="266" y="316" width="34" height="3.5" rx="1.75" fill="#E0D5C6"/>
+              <rect x="266" y="325" width="22" height="3.5" rx="1.75" fill="#E0D5C6"/>
+            </g>
+
+            <!-- CALCULADORA -->
+            <rect x="370" y="288" width="74" height="48" rx="8" fill="#285F4A"/>
+            <rect x="379" y="296" width="56" height="13" rx="3" fill="#E4F1EB"/>
+            <circle cx="388" cy="319" r="3.6" fill="#78BFA3"/>
+            <circle cx="402" cy="319" r="3.6" fill="#78BFA3"/>
+            <circle cx="416" cy="319" r="3.6" fill="#78BFA3"/>
+            <circle cx="430" cy="319" r="3.6" fill="#D9826B"/>
+            <circle cx="388" cy="330" r="3.6" fill="#78BFA3"/>
+            <circle cx="402" cy="330" r="3.6" fill="#78BFA3"/>
+            <circle cx="416" cy="330" r="3.6" fill="#78BFA3"/>
+            <circle cx="430" cy="330" r="3.6" fill="#D9826B"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TELA 2 — QUIZ ============ -->
+    <section class="screen" id="screen-quiz" aria-labelledby="q-title">
+      <div class="wrap wrap-narrow" style="padding:0">
+        <div class="quiz-card">
+          <div class="progress-head">
+            <span id="q-counter">Pergunta 1 de 8</span>
+            <span class="hint" id="q-hint">Não existe resposta certa ou errada.</span>
+          </div>
+          <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="1" aria-label="Progresso do quiz">
+            <span id="q-bar" style="width:12.5%"></span>
+          </div>
+
+          <h2 class="q-title" id="q-title">&nbsp;</h2>
+          <p class="q-sub" id="q-sub">Responda de acordo com a realidade de vocês.</p>
+
+          <div class="options" id="q-options" role="radiogroup" aria-labelledby="q-title"></div>
+
+          <div class="quiz-nav">
+            <button class="btn btn-ghost" id="btn-back" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Voltar
+            </button>
+            <button class="btn btn-primary" id="btn-next" type="button" disabled>
+              Continuar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERVALO A — depois da pergunta 3 ============ -->
+    <section class="screen" id="screen-interlude-a" aria-labelledby="int-a-title">
+      <div class="wrap wrap-narrow" style="padding:0">
+        <div class="quiz-card interlude">
+          <span class="eyebrow" style="background:var(--terracota-soft);color:var(--brick)">Uma pausa rápida</span>
+
+          <svg class="interlude-art" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="artA-t artA-d">
+            <title id="artA-t">Casal preocupado com as contas</title>
+            <desc id="artA-d">Ilustração de um casal, com a mulher grávida, sentados à mesa cercados de boletos e contas, com expressão de preocupação.</desc>
+            <ellipse cx="220" cy="138" rx="196" ry="98" fill="#FBEAE4"/>
+            <path d="M196 44q6-12 14 0" stroke="#E8A38C" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M226 36q7-14 16 0" stroke="#E8A38C" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="352" cy="66" r="5" fill="#F1B7A5"/>
+            <circle cx="82" cy="58" r="7" fill="#F1B7A5"/>
+
+            <!-- MULHER GRÁVIDA -->
+            <ellipse cx="146" cy="104" rx="28" ry="33" fill="#3F332C"/>
+            <circle cx="146" cy="94" r="23" fill="#F1C9A5"/>
+            <path d="M123 94a23 23 0 0 1 46 0c-5-10-14-13-23-13s-18 3-23 13Z" fill="#3F332C"/>
+            <circle cx="139" cy="95" r="2.2" fill="#37403B"/>
+            <circle cx="153" cy="95" r="2.2" fill="#37403B"/>
+            <path d="M132 87l8 3M160 87l-8 3" stroke="#3F332C" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M140 105q6 3 12 0" stroke="#B4543B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <rect x="139" y="112" width="14" height="12" fill="#E8B892"/>
+            <path d="M122 136q2-12 17-14h14q15 2 17 14l4 26q9 17 7 38h-70q-2-21 7-38Z" fill="#F1B7A5"/>
+            <path d="M168 140q16 12 12 30" stroke="#F1B7A5" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <path d="M124 138q-16 8-18 22" stroke="#F1B7A5" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <circle cx="106" cy="163" r="7" fill="#F1C9A5"/>
+
+            <!-- HOMEM COM A MÃO NA CABEÇA -->
+            <circle cx="300" cy="98" r="21" fill="#B87F5A"/>
+            <path d="M279 96a21 21 0 0 1 42 0c-4-9-13-12-21-12s-17 3-21 12Z" fill="#2F2620"/>
+            <circle cx="294" cy="99" r="2.1" fill="#37403B"/>
+            <circle cx="307" cy="99" r="2.1" fill="#37403B"/>
+            <path d="M288 91l7 3M314 91l-7 3" stroke="#2F2620" stroke-width="2.3" stroke-linecap="round"/>
+            <path d="M295 109q6 3 11 0" stroke="#7A4A32" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+            <rect x="294" y="115" width="13" height="11" fill="#9C6A4A"/>
+            <path d="M276 140q3-12 18-14h13q15 2 18 14l4 60h-57Z" fill="#78BFA3"/>
+            <path d="M282 142q-22 2-24-26" stroke="#78BFA3" stroke-width="13" fill="none" stroke-linecap="round"/>
+            <circle cx="259" cy="110" r="7.5" fill="#B87F5A"/>
+            <path d="M322 142q16 10 14 28" stroke="#78BFA3" stroke-width="13" fill="none" stroke-linecap="round"/>
+
+            <!-- MESA E CONTAS -->
+            <rect x="38" y="198" width="364" height="11" rx="5.5" fill="#E0D5C6"/>
+            <g transform="rotate(-8 214 186)">
+              <rect x="188" y="166" width="52" height="34" rx="3" fill="#FFFFFF"/>
+              <rect x="195" y="173" width="26" height="3" rx="1.5" fill="#D9826B"/>
+              <rect x="195" y="181" width="34" height="2.6" rx="1.3" fill="#E0D5C6"/>
+              <rect x="195" y="188" width="20" height="2.6" rx="1.3" fill="#E0D5C6"/>
+            </g>
+            <g transform="rotate(6 246 190)">
+              <rect x="222" y="172" width="50" height="28" rx="3" fill="#FAF7F2"/>
+              <rect x="229" y="179" width="22" height="3" rx="1.5" fill="#B4543B"/>
+              <rect x="229" y="187" width="30" height="2.6" rx="1.3" fill="#E0D5C6"/>
+            </g>
+            <g transform="rotate(-3 92 188)">
+              <rect x="66" y="170" width="48" height="30" rx="3" fill="#FFFFFF"/>
+              <rect x="73" y="177" width="24" height="3" rx="1.5" fill="#D9826B"/>
+              <rect x="73" y="185" width="30" height="2.6" rx="1.3" fill="#E0D5C6"/>
+            </g>
+            <circle cx="356" cy="184" r="15" fill="#D9A85F"/>
+            <path d="M356 176v16M352 180h6a3 3 0 0 1 0 6h-4a3 3 0 0 0 0 6h6" stroke="#8A6420" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+
+          <h2 id="int-a-title">Quase ninguém faz essa conta antes. E é aí que aperta.</h2>
+          <p class="interlude-text">A maioria dos pais de primeira viagem descobre os valores no caminho — com a barriga crescendo, a lista aumentando e o cartão resolvendo o que o planejamento não resolveu. Não é falta de cuidado de vocês. É que ninguém ensina isso.</p>
+
+          <div class="datapoint">
+            <p class="datapoint-num">80,9%</p>
+            <p class="datapoint-desc">das famílias brasileiras estão endividadas — o maior índice desde o início da série histórica.</p>
+            <p class="datapoint-src">Pesquisa Peic, da Confederação Nacional do Comércio (CNC), referente a abril de 2026 · <a href="https://www12.senado.leg.br/noticias/infomaterias/2026/05/dividas-em-recorde-assombram-as-familias-brasileiras" target="_blank" rel="noopener noreferrer">Agência Senado<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a></p>
+          </div>
+
+          <p class="interlude-note">Vocês ainda têm tempo de fazer diferente. Vamos continuar.</p>
+          <button class="btn btn-primary btn-block" type="button" data-continue="3">
+            Continuar o quiz
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERVALO B — depois da pergunta 6 ============ -->
+    <section class="screen" id="screen-interlude-b" aria-labelledby="int-b-title">
+      <div class="wrap wrap-narrow" style="padding:0">
+        <div class="quiz-card interlude">
+          <span class="eyebrow">Falta pouco</span>
+
+          <svg class="interlude-art" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="artB-t artB-d">
+            <title id="artB-t">Documento de benefício aprovado</title>
+            <desc id="artB-d">Ilustração de um documento de benefício com carimbo de aprovado, ao lado de um calendário e moedas, representando direitos da família.</desc>
+            <ellipse cx="220" cy="136" rx="196" ry="98" fill="#E4F1EB"/>
+            <circle cx="84" cy="60" r="7" fill="#78BFA3"/>
+            <circle cx="360" cy="70" r="5" fill="#D9A85F"/>
+
+            <!-- DOCUMENTO -->
+            <g transform="rotate(-4 196 130)">
+              <rect x="126" y="52" width="140" height="164" rx="9" fill="#FFFFFF" stroke="#E0D5C6" stroke-width="2"/>
+              <rect x="144" y="72" width="76" height="7" rx="3.5" fill="#285F4A"/>
+              <rect x="144" y="90" width="104" height="4.5" rx="2.25" fill="#E0D5C6"/>
+              <rect x="144" y="102" width="88" height="4.5" rx="2.25" fill="#E0D5C6"/>
+              <rect x="144" y="114" width="98" height="4.5" rx="2.25" fill="#E0D5C6"/>
+              <rect x="144" y="126" width="62" height="4.5" rx="2.25" fill="#E0D5C6"/>
+              <rect x="144" y="150" width="46" height="4.5" rx="2.25" fill="#E0D5C6"/>
+              <rect x="144" y="162" width="70" height="4.5" rx="2.25" fill="#E0D5C6"/>
+              <g transform="rotate(-12 224 178)">
+                <rect x="188" y="158" width="72" height="40" rx="6" fill="none" stroke="#2D785E" stroke-width="3"/>
+                <path d="M202 178l9 9 19-20" stroke="#2D785E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="236" y="172" width="14" height="4" rx="2" fill="#2D785E"/>
+                <rect x="236" y="180" width="10" height="4" rx="2" fill="#2D785E"/>
+              </g>
+            </g>
+
+            <!-- CALENDÁRIO -->
+            <rect x="288" y="104" width="86" height="82" rx="8" fill="#FFFFFF" stroke="#E0D5C6" stroke-width="2"/>
+            <path d="M288 118a8 8 0 0 1 8-8h70a8 8 0 0 1 8 8v6h-86Z" fill="#285F4A"/>
+            <rect x="302" y="98" width="6" height="16" rx="3" fill="#1D4536"/>
+            <rect x="354" y="98" width="6" height="16" rx="3" fill="#1D4536"/>
+            <circle cx="331" cy="154" r="21" fill="#E4F1EB"/>
+            <text x="331" y="162" text-anchor="middle" fill="#285F4A" font-family="Nunito,sans-serif" font-size="22" font-weight="800">30</text>
+
+            <!-- MOEDAS -->
+            <ellipse cx="96" cy="196" rx="30" ry="9" fill="#C4913F"/>
+            <rect x="66" y="180" width="60" height="16" fill="#D9A85F"/>
+            <ellipse cx="96" cy="180" rx="30" ry="9" fill="#E8C078"/>
+            <ellipse cx="96" cy="180" rx="14" ry="4" fill="#C4913F"/>
+            <ellipse cx="96" cy="166" rx="24" ry="7" fill="#C4913F"/>
+            <rect x="72" y="154" width="48" height="12" fill="#D9A85F"/>
+            <ellipse cx="96" cy="154" rx="24" ry="7" fill="#E8C078"/>
+          </svg>
+
+          <h2 id="int-b-title">Tem dinheiro que já é de vocês por direito. E muita gente deixa passar.</h2>
+          <p class="interlude-text">Entre o cansaço, a papelada e a correria, benefícios ficam pelo caminho — e não é pouca coisa. O salário-maternidade garante 120 dias de renda, e as regras acabaram de mudar a favor das famílias.</p>
+
+          <div class="datapoint datapoint-green">
+            <p class="datapoint-num">30 dias</p>
+            <p class="datapoint-desc">é o novo prazo máximo para o INSS pagar o salário-maternidade. Se não pagar, o benefício é concedido automaticamente.</p>
+            <p class="datapoint-src">Lei 15.415, sancionada em 25 de maio de 2026 · <a href="https://www12.senado.leg.br/noticias/materias/2026/05/26/lei-estabelece-limite-de-30-dias-para-inss-pagar-salario-maternidade" target="_blank" rel="noopener noreferrer">Agência Senado<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg></a></p>
+          </div>
+
+          <p class="interlude-note">Saber o que pedir — e quando — já muda o orçamento de vocês.</p>
+          <button class="btn btn-primary btn-block" type="button" data-continue="6">
+            Continuar o quiz
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TELA 3 — CAPTURA DE LEAD ============ -->
+    <section class="screen" id="screen-lead" aria-labelledby="lead-title">
+      <div class="wrap wrap-narrow" style="padding:0;max-width:560px">
+        <div class="quiz-card">
+          <div class="bar" aria-hidden="true"><span style="width:100%"></span></div>
+          <h2 id="lead-title">Seu resultado está quase pronto</h2>
+          <p class="q-sub" style="margin-top:8px">Preencha seus dados para receber o diagnóstico personalizado e continuar para o plano recomendado.</p>
+
+          <form id="lead-form" novalidate>
+            <div class="field">
+              <label for="lead-name">Primeiro nome</label>
+              <input type="text" id="lead-name" name="name" autocomplete="given-name" placeholder="Como podemos te chamar?" aria-describedby="err-name">
+              <p class="err" id="err-name">Por favor, informe seu primeiro nome.</p>
+            </div>
+
+            <div class="field">
+              <label for="lead-whats">WhatsApp</label>
+              <input type="tel" id="lead-whats" name="whatsapp" inputmode="tel" autocomplete="tel-national" placeholder="(11) 90000-0000" maxlength="16" aria-describedby="err-whats">
+              <p class="err" id="err-whats">Informe um WhatsApp válido com DDD.</p>
+            </div>
+
+            <div class="field">
+              <label for="lead-email">E-mail <span class="opcional">opcional</span></label>
+              <input type="email" id="lead-email" name="email" inputmode="email" autocomplete="email" placeholder="seu@email.com" aria-describedby="err-email">
+              <p class="err" id="err-email">Esse e-mail parece incompleto. Confira ou deixe em branco.</p>
+            </div>
+
+            <label class="consent" for="lead-consent">
+              <input type="checkbox" id="lead-consent" aria-describedby="err-consent">
+              <span>Concordo em receber meu resultado e comunicações sobre o ebook. Posso cancelar quando quiser.</span>
+            </label>
+            <p class="err" id="err-consent" style="margin:-14px 0 18px">É preciso concordar para receber o resultado por contato.</p>
+
+            <button class="btn btn-primary btn-block" type="submit">
+              Ver meu diagnóstico
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+
+          <button class="skip" id="btn-skip" type="button">Prefiro ver apenas o resultado</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TELA 4 — PROCESSANDO ============ -->
+    <section class="screen" id="screen-loading" aria-labelledby="loading-msg">
+      <div class="wrap wrap-narrow" style="padding:0;max-width:560px">
+        <div class="quiz-card">
+          <div class="loading">
+            <div class="spinner" aria-hidden="true"></div>
+            <p class="loading-msg" id="loading-msg" role="status" aria-live="polite">Analisando o nível de preparação...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TELA 5 — RESULTADO ============ -->
+    <section class="screen" id="screen-result" aria-labelledby="tier-name">
+      <div class="wrap wrap-narrow" style="padding:0">
+        <div class="result-card" id="result-card">
+          <span class="tier-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <span id="tier-eyebrow">Seu diagnóstico</span>
+          </span>
+
+          <h2 class="tier-name" id="tier-name">&nbsp;</h2>
+          <p id="tier-greeting" style="font-weight:700;color:var(--text-soft)"></p>
+
+          <div class="gauge">
+            <div class="gauge-top">
+              <span class="gauge-score"><b id="score-value">0</b> / 21 pontos</span>
+              <span class="gauge-max" id="score-label">Nível de preparação</span>
+            </div>
+            <div class="gauge-track" role="img" id="gauge-img" aria-label="">
+              <div class="gauge-fill" id="gauge-fill"></div>
+            </div>
+            <div class="gauge-scale" aria-hidden="true">
+              <span>Alerta</span><span>Começando</span><span>Em andamento</span><span>Base forte</span>
+            </div>
+          </div>
+
+          <p class="result-msg" id="tier-message"></p>
+
+          <div class="phase-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <p id="phase-note"></p>
+          </div>
+
+          <div class="risk">
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+              Principal risco
+            </h3>
+            <p id="tier-risk"></p>
+          </div>
+
+          <p class="block-title">Suas 3 prioridades agora</p>
+          <ul class="priorities" id="tier-priorities"></ul>
+
+          <p class="bridge" id="tier-bridge"></p>
+
+          <div class="result-actions">
+            <a class="btn btn-buy" data-checkout data-cta="resultado" href="#">
+              Quero meu plano completo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <button class="btn btn-ghost" id="btn-restart" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Refazer o quiz
+            </button>
+          </div>
+        </div>
+
+        <p class="microcopy" style="text-align:center;margin-top:20px">
+          Role para ver o próximo passo recomendado para vocês.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ============ FUNIL DE VENDA (revelado após o diagnóstico) ============ -->
+<div id="sales" hidden>
+
+  <!-- Transição -->
+  <section class="section section-white">
+    <div class="wrap">
+      <div class="transition">
+        <h2>Seu maior risco não é gastar muito. É chegar sem números.</h2>
+        <p class="lead">Quando vocês sabem quanto guardar, o que comprar, quais direitos verificar e onde colocar o dinheiro, a chegada do bebê deixa de parecer um susto financeiro e passa a ser um plano possível.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dados reais / autoridade -->
+  <section class="section section-mint">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" style="background:var(--white)">O contexto que ninguém conta</span>
+        <h2>Não é só com vocês. Os números explicam muita coisa.</h2>
+        <p class="lead">A dificuldade de se organizar antes do bebê não é falta de esforço da sua família. É o retrato de um país em que a maioria das casas já vive no aperto — e onde poucos sabem quais direitos podem pedir.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <p class="stat-num">80,9%</p>
+          <p class="stat-desc">das famílias brasileiras estão endividadas — o maior índice desde o início da pesquisa.</p>
+          <p class="stat-src">
+            Pesquisa Peic/CNC, abril de 2026<br>
+            <a href="https://www12.senado.leg.br/noticias/infomaterias/2026/05/dividas-em-recorde-assombram-as-familias-brasileiras" target="_blank" rel="noopener noreferrer">Ver na Agência Senado
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+          </p>
+        </div>
+
+        <div class="stat-card">
+          <p class="stat-num">12,3%</p>
+          <p class="stat-desc">declaram não ter condição de pagar as dívidas que têm. Outros 29,7% já estão com contas em atraso.</p>
+          <p class="stat-src">
+            Pesquisa Peic/CNC, abril de 2026<br>
+            <a href="https://www12.senado.leg.br/noticias/infomaterias/2026/05/dividas-em-recorde-assombram-as-familias-brasileiras" target="_blank" rel="noopener noreferrer">Ver na Agência Senado
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+          </p>
+        </div>
+
+        <div class="stat-card stat-card-good">
+          <p class="stat-num">120 dias</p>
+          <p class="stat-desc">de renda garantida pelo salário-maternidade. Desde 2026, o INSS tem até 30 dias para pagar — se atrasar, o benefício sai automaticamente.</p>
+          <p class="stat-src">
+            Lei 15.415, de 25 de maio de 2026<br>
+            <a href="https://www12.senado.leg.br/noticias/materias/2026/05/26/lei-estabelece-limite-de-30-dias-para-inss-pagar-salario-maternidade" target="_blank" rel="noopener noreferrer">Ver na Agência Senado
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <p class="stats-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span>Todos os números acima vêm de fontes oficiais e podem ser conferidos nos links. Regras de benefícios e índices mudam com o tempo — confirme sempre nos canais oficiais antes de tomar decisões.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Oferta -->
+  <section class="section section-white" id="offer">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">O próximo passo para organizar tudo</span>
+        <h2>Transforme a preocupação em um plano antes do bebê chegar</h2>
+        <p class="lead">O ebook <strong>Grávidos de Contas</strong> mostra, em linguagem simples, como preparar a vida financeira da família sem planilhas difíceis, sem culpa e sem precisar entender de investimentos.</p>
+      </div>
+
+      <div class="offer">
+        <div>
+          <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bookTitle bookDesc" style="filter:drop-shadow(0 18px 34px rgba(40,95,74,.22));max-width:320px;margin:0 auto">
+            <title id="bookTitle">Capa do ebook Grávidos de Contas</title>
+            <desc id="bookDesc">Mockup da capa do ebook digital Grávidos de Contas — O guia financeiro para a chegada do primeiro filho sem sufoco.</desc>
+
+            <rect x="26" y="14" width="272" height="372" rx="10" fill="#1D4536"/>
+            <rect x="26" y="14" width="15" height="372" rx="4" fill="#143024"/>
+            <rect x="41" y="14" width="257" height="372" rx="8" fill="#285F4A"/>
+            <circle cx="290" cy="60" r="72" fill="#2F6E56"/>
+            <circle cx="60" cy="352" r="52" fill="#2F6E56"/>
+
+            <g transform="translate(170,116)">
+              <circle cx="0" cy="0" r="42" fill="#78BFA3"/>
+              <circle cx="0" cy="-12" r="13" fill="#FAF7F2"/>
+              <path d="M-19 26q0-19 19-19t19 19q-9 7-19 7t-19-7Z" fill="#FAF7F2"/>
+              <circle cx="30" cy="26" r="13" fill="#D9A85F"/>
+              <path d="M24 26h12M30 20v12" stroke="#285F4A" stroke-width="2.6" stroke-linecap="round"/>
+            </g>
+
+            <text x="170" y="212" text-anchor="middle" fill="#FFFFFF" font-family="Nunito,sans-serif" font-size="31" font-weight="800">Grávidos</text>
+            <text x="170" y="246" text-anchor="middle" fill="#FFFFFF" font-family="Nunito,sans-serif" font-size="31" font-weight="800">de Contas</text>
+            <rect x="140" y="264" width="60" height="4" rx="2" fill="#D9826B"/>
+            <text x="170" y="296" text-anchor="middle" fill="#C9DAD2" font-family="Nunito,sans-serif" font-size="13" font-weight="600">O guia financeiro para a chegada</text>
+            <text x="170" y="315" text-anchor="middle" fill="#C9DAD2" font-family="Nunito,sans-serif" font-size="13" font-weight="600">do primeiro filho sem sufoco</text>
+            <rect x="122" y="342" width="96" height="26" rx="13" fill="#78BFA3"/>
+            <text x="170" y="360" text-anchor="middle" fill="#1D4536" font-family="Nunito,sans-serif" font-size="12" font-weight="800">EBOOK EM PDF</text>
+          </svg>
+        </div>
+
+        <div>
+          <p class="block-title">O que você vai aprender</p>
+          <ul class="benefits">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Entenda quanto um bebê pode custar no primeiro ano.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Descubra quanto guardar por mês de acordo com sua renda.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Monte uma Reserva do Bebê com uma meta realista, entre R$ 5.000 e R$ 8.000, adaptável à realidade de vocês.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Saiba onde guardar o dinheiro com segurança e liquidez.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Conheça direitos e benefícios que podem ajudar a família.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Economize no enxoval sem abrir mão do essencial.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Siga um plano organizado para cada trimestre.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Use um checklist final para não esquecer nada.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preço -->
+  <section class="section">
+    <div class="wrap">
+      <div class="price-card">
+        <p class="price-top">Acesso ao guia completo</p>
+        <p class="price-value">R$ 67,90</p>
+        <p class="price-note">Menos do que muitas famílias gastam em uma compra por impulso para o enxoval — e com potencial para evitar centenas de reais em escolhas desnecessárias.</p>
+        <a class="btn btn-buy btn-block" data-checkout data-cta="bloco_preco" href="#">
+          Quero me preparar por R$ 67,90
+        </a>
+        <p class="microcopy">Acesso ao ebook digital após a confirmação do pagamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Identificação -->
+  <section class="section section-green">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Você não precisa ter a vida financeira perfeita para começar</h2>
+        <p class="lead">Começar cedo reduz o esforço mensal. Mesmo uma pequena reserva já muda a forma como vocês vivem a chegada.</p>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-5 5v-2c2 0 3-1 3-3H7Zm9 0h4v4c0 3-2 5-5 5v-2c2 0 3-1 3-3h-2Z"/></svg>
+          A alegria vem primeiro. Logo depois, aparece a pergunta: como vamos pagar tudo?
+        </blockquote>
+        <blockquote class="quote">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-5 5v-2c2 0 3-1 3-3H7Zm9 0h4v4c0 3-2 5-5 5v-2c2 0 3-1 3-3h-2Z"/></svg>
+          Não precisa entender de investimentos, nem ganhar muito, nem montar uma planilha complexa.
+        </blockquote>
+        <blockquote class="quote">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-5 5v-2c2 0 3-1 3-3H7Zm9 0h4v4c0 3-2 5-5 5v-2c2 0 3-1 3-3h-2Z"/></svg>
+          Mesmo uma pequena reserva já muda a forma como vocês vivem a chegada.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quebra de objeções -->
+  <section class="section section-white">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>“Mas será que esse guia é para mim?”</h2>
+      </div>
+      <div class="accordion" data-accordion="objecoes">
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="obj-1">
+            <span>“Minha renda está apertada.”</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="obj-1"><div><p>Você não precisa começar com um valor alto. O guia mostra como definir um aporte compatível com a renda real da família e como usar o tempo a seu favor.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="obj-2">
+            <span>“Eu não entendo nada de investimentos.”</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="obj-2"><div><p>O conteúdo explica apenas o necessário, em linguagem simples, para que você saiba onde guardar uma reserva com segurança e acesso fácil.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="obj-3">
+            <span>“Já estou no final da gestação.”</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="obj-3"><div><p>Ainda há decisões importantes que podem ser organizadas: compras essenciais, gastos mensais, benefícios, documentos e primeiros meses após o nascimento.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="obj-4">
+            <span>“Vou usar o SUS.”</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="obj-4"><div><p>O guia não depende de parto particular. Ele ajuda a organizar enxoval, reserva, fraldas, higiene, alimentação, benefícios e orçamento familiar.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="obj-5">
+            <span>“Já comecei a comprar o enxoval.”</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="obj-5"><div><p>Ótimo. O guia ajuda a revisar prioridades, evitar excessos e lembrar dos gastos recorrentes que continuam depois do nascimento.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativo -->
+  <section class="section section-mint">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>A diferença não é ganhar muito. É saber o que fazer com o que vocês têm.</h2>
+      </div>
+      <div class="compare">
+        <div class="col col-bad">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+            Sem um plano
+          </h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Compras feitas no impulso</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Dinheiro misturado na conta</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Cartão usado para cobrir imprevistos</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Dúvidas sobre quanto guardar</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Direitos não solicitados</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Ansiedade aumentando perto do parto</span></li>
+          </ul>
+        </div>
+        <div class="col col-good">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="color:var(--mint)" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+            Com um plano
+          </h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Reserva com meta definida</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Compras priorizadas</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Orçamento mensal revisado</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Dinheiro separado e rendendo</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Benefícios verificados</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Mais tranquilidade para receber o bebê</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-white">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Dúvidas frequentes</span>
+        <h2>Perguntas que muitos futuros pais fazem</h2>
+      </div>
+      <div class="accordion" data-accordion="faq">
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-1">
+            <span>O que recebo após a compra?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="faq-1"><div><p>Você recebe o ebook digital <strong>Grávidos de Contas</strong>, em formato PDF, com orientações, exemplos, tabelas, plano por trimestre e checklist final.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-2">
+            <span>O ebook serve apenas para o primeiro filho?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="faq-2"><div><p>Ele foi pensado especialmente para a chegada do primeiro filho, mas também pode ajudar famílias que desejam reorganizar as finanças para um novo bebê.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-3">
+            <span>Preciso entender de finanças?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="faq-3"><div><p>Não. O conteúdo foi escrito para iniciantes e evita linguagem técnica desnecessária.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-4">
+            <span>O ebook diz exatamente quanto vou gastar?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="faq-4"><div><p>Ele apresenta faixas e referências para ajudar no planejamento. Os valores reais podem variar conforme cidade, renda, saúde, escolhas e necessidades do bebê.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-5">
+            <span>Posso usar o guia mesmo tendo renda variável?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="faq-5"><div><p>Sim. O material explica como montar o planejamento com base na renda garantida e usar valores extras como aceleradores da reserva.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-6">
+            <span>O conteúdo substitui orientação financeira ou previdenciária?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button></h3>
+          <div class="acc-panel" id="faq-6"><div><p>Não. O material tem caráter educativo. Regras, taxas e benefícios devem ser confirmados em fontes oficiais ou com profissionais responsáveis.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="section section-green">
+    <div class="wrap">
+      <div class="final">
+        <h2>O bebê não precisa chegar junto com o aperto financeiro</h2>
+        <p class="lead">Vocês não precisam prever tudo. Precisam apenas começar com um plano claro, possível e adaptado à realidade da família.</p>
+        <p class="final-price">R$ 67,90</p>
+        <a class="btn btn-buy" data-checkout data-cta="cta_final" href="#">
+          Quero organizar a chegada do meu bebê
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <p class="microcopy" style="color:#A9C0B6">Um passo simples hoje pode trazer muito mais tranquilidade nos próximos meses.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="footer-brand">Grávidos de Contas</p>
+    <p class="footer-sub">O guia financeiro para a chegada do primeiro filho sem sufoco.</p>
+    <nav class="footer-links" aria-label="Links institucionais">
+      <a href="PRIVACY_URL">Política de privacidade</a>
+      <a href="TERMS_URL">Termos de uso</a>
+      <a href="CONTACT_URL">Contato</a>
+    </nav>
+    <p class="disclaimer">
+      Este material tem caráter educativo e informativo e não constitui recomendação individualizada de investimento, consultoria médica ou consultoria previdenciária. Valores, regras de benefícios e taxas podem mudar. Confirme informações atualizadas em fontes oficiais antes de tomar decisões.
+    </p>
+    <p class="copyright">© <span id="year">2026</span> Grávidos de Contas. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* =========================================================
+   1. CONFIGURAÇÃO — troque apenas esta linha pelo link real
+   ========================================================= */
+const CHECKOUT_URL = 'CHECKOUT_URL';
+
+/* =========================================================
+   2. ANALYTICS
+   Pontos de disparo prontos. Conecte aqui sua ferramenta
+   (GA4, Meta Pixel, etc.). Hoje apenas registra no console.
+   Eventos: quiz_started, quiz_question_answered, quiz_completed,
+   lead_submitted, lead_skipped, result_viewed, offer_viewed,
+   checkout_clicked, faq_opened
+   ========================================================= */
+function track(event, params){
+  const payload = params || {};
+  // GA4:        window.gtag && gtag('event', event, payload);
+  // Meta Pixel: window.fbq && fbq('trackCustom', event, payload);
+  // dataLayer:  (window.dataLayer = window.dataLayer || []).push({event, ...payload});
+  if (window.console && console.debug) console.debug('[analytics]', event, payload);
+}
+
+/* =========================================================
+   3. DADOS DO QUIZ
+   ========================================================= */
+const QUESTIONS = [
+  {
+    id:'fase',
+    title:'Em que fase vocês estão?',
+    sub:'Não existe resposta certa ou errada.',
+    scored:false,
+    options:[
+      {label:'Estamos planejando ter um bebê', phase:'planejando'},
+      {label:'Primeiro trimestre da gestação', phase:'tri1'},
+      {label:'Segundo trimestre da gestação', phase:'tri2'},
+      {label:'Terceiro trimestre da gestação', phase:'tri3'},
+      {label:'O bebê já nasceu', phase:'nasceu'}
+    ]
+  },
+  {
+    id:'reserva',
+    title:'Vocês já têm uma reserva separada para a chegada do bebê?',
+    sub:'Responda de acordo com a realidade de vocês.',
+    scored:true,
+    options:[
+      {label:'Ainda não começamos', points:0},
+      {label:'Começamos, mas ainda temos menos de R$ 1.000', points:1},
+      {label:'Temos entre R$ 1.000 e R$ 4.999', points:2},
+      {label:'Já temos R$ 5.000 ou mais', points:3}
+    ]
+  },
+  {
+    id:'poupanca',
+    title:'Quanto vocês conseguem separar por mês atualmente?',
+    sub:'Considere o valor que sobra de verdade, não o ideal.',
+    scored:true,
+    options:[
+      {label:'Nada ou quase nada', points:0},
+      {label:'Até R$ 200', points:1},
+      {label:'De R$ 201 a R$ 500', points:2},
+      {label:'Mais de R$ 500', points:3}
+    ]
+  },
+  {
+    id:'custos',
+    title:'Vocês sabem quanto um bebê pode custar no primeiro ano?',
+    sub:'Seu resultado será calculado ao final.',
+    scored:true,
+    options:[
+      {label:'Não fazemos ideia', points:0},
+      {label:'Temos apenas uma noção', points:1},
+      {label:'Já pesquisamos alguns gastos', points:2},
+      {label:'Já organizamos uma estimativa mensal', points:3}
+    ]
+  },
+  {
+    id:'recorrentes',
+    title:'Fraldas, higiene, alimentação e saúde já entraram no orçamento mensal?',
+    sub:'São os gastos que se repetem todo mês depois do nascimento.',
+    scored:true,
+    options:[
+      {label:'Ainda não', points:0},
+      {label:'Pensamos nisso, mas não calculamos', points:1},
+      {label:'Fizemos uma estimativa básica', points:2},
+      {label:'Já incluímos tudo no orçamento', points:3}
+    ]
+  },
+  {
+    id:'enxoval',
+    title:'Como está o planejamento do enxoval?',
+    sub:'Organização começa com clareza.',
+    scored:true,
+    options:[
+      {label:'Ainda não começamos', points:0},
+      {label:'Fizemos uma lista inicial', points:1},
+      {label:'Já compramos os itens mais importantes', points:2},
+      {label:'O essencial está praticamente organizado', points:3}
+    ]
+  },
+  {
+    id:'beneficios',
+    title:'Vocês já verificaram os benefícios financeiros disponíveis para a família?',
+    sub:'Falta pouco para o diagnóstico.',
+    scored:true,
+    options:[
+      {label:'Não sabemos quais são', points:0},
+      {label:'Já ouvimos falar, mas não verificamos', points:1},
+      {label:'Já pesquisamos quais podem se aplicar', points:2},
+      {label:'Já verificamos e separamos a documentação', points:3}
+    ]
+  },
+  {
+    id:'onde',
+    title:'Onde está o dinheiro que vocês estão juntando?',
+    sub:'Última pergunta. Seu diagnóstico vem logo em seguida.',
+    scored:true,
+    options:[
+      {label:'Misturado na conta corrente', points:0},
+      {label:'Na poupança', points:1},
+      {label:'Em uma conta ou caixinha separada', points:2},
+      {label:'Em opção segura com liquidez, como Tesouro Selic ou CDB diário', points:3}
+    ]
+  }
+];
+
+const TIERS = [
+  {
+    min:0, max:5,
+    name:'Alerta financeiro',
+    accent:'#D9826B', soft:'#FBEAE4', text:'#AE4B32',
+    message:'A chegada do bebê ainda está sem uma base financeira clara. Isso não significa que vocês não vão dar conta. Significa apenas que algumas decisões importantes precisam começar agora, antes que as compras e os gastos mensais se acumulem.',
+    risk:'Chegar aos últimos meses sem saber quanto será necessário e acabar resolvendo tudo no cartão ou no improviso.',
+    priorities:[
+      'Criar uma reserva exclusiva para o bebê.',
+      'Levantar os gastos essenciais do primeiro ano.',
+      'Definir um valor mensal possível, mesmo que pequeno.'
+    ],
+    bridge:'O ebook <strong>Grávidos de Contas</strong> foi criado exatamente para quem ainda não sabe por onde começar.'
+  },
+  {
+    min:6, max:10,
+    name:'Começando a se organizar',
+    accent:'#D9A85F', soft:'#FAF0DE', text:'#8A6420',
+    message:'Vocês já perceberam que precisam se preparar, mas o plano ainda está incompleto. Esse é o momento ideal para organizar os números antes que a gestação avance e as decisões fiquem mais urgentes.',
+    risk:'Guardar dinheiro sem uma meta definida e comprar itens do enxoval sem priorizar o que realmente será usado.',
+    priorities:[
+      'Definir uma meta para a Reserva do Bebê.',
+      'Separar gastos únicos dos gastos mensais.',
+      'Verificar direitos e benefícios aplicáveis.'
+    ],
+    bridge:'Com um plano simples, vocês podem transformar preocupação em uma sequência clara de ações.'
+  },
+  {
+    min:11, max:16,
+    name:'Organização em andamento',
+    accent:'#78BFA3', soft:'#E4F1EB', text:'#2D785E',
+    message:'Vocês já construíram uma boa base, mas ainda existem pontos que podem gerar aperto depois do nascimento. Pequenos ajustes agora podem evitar decisões caras e corridas na reta final.',
+    risk:'Acreditar que o enxoval é a maior preocupação e esquecer os gastos recorrentes dos primeiros meses.',
+    priorities:[
+      'Revisar o orçamento mensal pós-nascimento.',
+      'Confirmar onde a reserva ficará guardada.',
+      'Completar o plano dos próximos meses.'
+    ],
+    bridge:'O ebook ajuda a revisar cada ponto e transformar o que já foi iniciado em um plano completo.'
+  },
+  {
+    min:17, max:21,
+    name:'Base financeira forte',
+    accent:'#285F4A', soft:'#E4F1EB', text:'#285F4A',
+    message:'Vocês estão à frente da maioria dos futuros pais. Já existe organização, consciência dos gastos e uma base de reserva. Agora o foco deve ser revisar os detalhes e evitar excessos.',
+    risk:'Gastar mais do que o necessário no enxoval ou deixar de aproveitar benefícios por falta de documentação.',
+    priorities:[
+      'Validar a meta final da reserva.',
+      'Revisar o checklist dos benefícios.',
+      'Planejar os primeiros meses após o nascimento.'
+    ],
+    bridge:'O ebook funciona como um checklist completo para garantir que nenhum detalhe importante seja esquecido.'
+  }
+];
+
+const PHASE_NOTES = {
+  planejando:'Vocês têm o melhor recurso possível: tempo. Quanto antes começarem, menor será o esforço mensal.',
+  tri1:'Este é o melhor momento para organizar o orçamento antes de começar as compras maiores.',
+  tri2:'Vocês ainda têm tempo para montar uma reserva e diluir os principais gastos.',
+  tri3:'A prioridade agora é organizar o essencial, proteger o caixa e evitar compras por impulso.',
+  nasceu:'Ainda dá para organizar. O foco agora deve ser controlar os gastos recorrentes e recuperar a tranquilidade financeira.'
+};
+
+/* Telas de copy exibidas ANTES da pergunta de índice N.
+   3 = antes da 4ª pergunta (custos) | 6 = antes da 7ª (benefícios) */
+const INTERLUDES = {
+  3: 'screen-interlude-a',
+  6: 'screen-interlude-b'
+};
+
+const LOADING_MSGS = [
+  'Analisando o nível de preparação...',
+  'Identificando os principais pontos de atenção...',
+  'Montando suas prioridades...',
+  'Seu diagnóstico está pronto.'
+];
+
+/* =========================================================
+   4. ESTADO (preservado em memória durante a navegação)
+   ========================================================= */
+const state = {
+  step: 0,                              // índice da pergunta atual
+  answers: new Array(QUESTIONS.length).fill(null),
+  lead: { name:'', whatsapp:'', email:'', consent:false, skipped:false },
+  started: false,
+  seenInterludes: {},   // evita repetir a tela de copy ao refazer o caminho
+  autoTimer: null
+};
+
+const $ = (sel) => document.querySelector(sel);
+const el = {
+  screens:   document.querySelectorAll('.screen'),
+  counter:   $('#q-counter'),
+  hint:      $('#q-hint'),
+  bar:       $('#q-bar'),
+  barWrap:   $('.bar[role="progressbar"]'),
+  qTitle:    $('#q-title'),
+  qSub:      $('#q-sub'),
+  options:   $('#q-options'),
+  btnBack:   $('#btn-back'),
+  btnNext:   $('#btn-next'),
+  sales:     $('#sales'),
+  loadingMsg:$('#loading-msg')
+};
+
+/* =========================================================
+   5. NAVEGAÇÃO ENTRE TELAS
+   ========================================================= */
+function show(id, focusSel){
+  el.screens.forEach(s => s.classList.toggle('is-active', s.id === id));
+  window.scrollTo({ top:0, behavior:'auto' });
+  if (focusSel){
+    const target = $(focusSel);
+    if (target){
+      target.setAttribute('tabindex','-1');
+      target.focus({ preventScroll:true });
+    }
+  }
+}
+
+/* =========================================================
+   6. RENDER DA PERGUNTA
+   ========================================================= */
+function renderQuestion(){
+  const q = QUESTIONS[state.step];
+  const total = QUESTIONS.length;
+
+  el.counter.textContent = 'Pergunta ' + (state.step + 1) + ' de ' + total;
+  el.hint.textContent = state.step === 0
+    ? 'Não existe resposta certa ou errada.'
+    : 'Falta pouco para o diagnóstico.';
+
+  const pct = ((state.step + 1) / total) * 100;
+  el.bar.style.width = pct + '%';
+  el.barWrap.setAttribute('aria-valuenow', String(state.step + 1));
+
+  el.qTitle.textContent = q.title;
+  el.qSub.textContent = q.sub;
+
+  el.options.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const chosen = state.answers[state.step] === i;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'opt';
+    btn.setAttribute('role','radio');
+    btn.setAttribute('aria-checked', chosen ? 'true' : 'false');
+    btn.tabIndex = chosen || (state.answers[state.step] === null && i === 0) ? 0 : -1;
+    btn.dataset.index = String(i);
+    btn.innerHTML =
+      '<span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>' +
+      '<span>' + opt.label + '</span>';
+    btn.addEventListener('click', () => select(i));
+    el.options.appendChild(btn);
+  });
+
+  el.btnNext.textContent = '';
+  el.btnNext.append(state.step === total - 1 ? 'Ver meu resultado' : 'Continuar');
+  el.btnNext.insertAdjacentHTML('beforeend',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>');
+  el.btnNext.disabled = state.answers[state.step] === null;
+}
+
+/* Seleção de resposta — feedback visual + avanço automático.
+   autoAdvance=false ao navegar pelo teclado, para que a pessoa
+   possa percorrer as alternativas sem a tela pular. */
+function select(index, autoAdvance){
+  clearTimeout(state.autoTimer);
+  state.answers[state.step] = index;
+
+  const q = QUESTIONS[state.step];
+  const opt = q.options[index];
+  el.options.querySelectorAll('.opt').forEach((b, i) => {
+    b.setAttribute('aria-checked', i === index ? 'true' : 'false');
+    b.tabIndex = i === index ? 0 : -1;
+  });
+  el.btnNext.disabled = false;
+
+  track('quiz_question_answered', {
+    question_id: q.id,
+    question_number: state.step + 1,
+    answer: opt.label,
+    points: q.scored ? opt.points : null
+  });
+
+  if (autoAdvance !== false) state.autoTimer = setTimeout(next, 420);
+}
+
+/* Teclado: setas navegam entre as alternativas (padrão radiogroup) */
+el.options.addEventListener('keydown', (e) => {
+  const keys = ['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'];
+  if (!keys.includes(e.key)) return;
+  const btns = Array.from(el.options.querySelectorAll('.opt'));
+  const current = btns.indexOf(document.activeElement);
+  if (current === -1) return;
+  e.preventDefault();
+  const forward = e.key === 'ArrowDown' || e.key === 'ArrowRight';
+  const nextIdx = (current + (forward ? 1 : -1) + btns.length) % btns.length;
+  btns[nextIdx].focus();
+  select(nextIdx, false);
+});
+
+/* =========================================================
+   7. AVANÇAR / VOLTAR
+   ========================================================= */
+function next(){
+  clearTimeout(state.autoTimer);
+  if (state.answers[state.step] === null) return;
+
+  if (state.step < QUESTIONS.length - 1){
+    const proxima = state.step + 1;
+
+    // tela de copy antes de algumas perguntas (só na ida, nunca ao voltar)
+    if (INTERLUDES[proxima] && !state.seenInterludes[proxima]){
+      state.seenInterludes[proxima] = true;
+      track('interlude_viewed', { antes_da_pergunta: proxima + 1 });
+      show(INTERLUDES[proxima], '#' + (proxima === 3 ? 'int-a-title' : 'int-b-title'));
+      return;
+    }
+
+    state.step = proxima;
+    renderQuestion();
+    show('screen-quiz', '#q-title');
+  } else {
+    track('quiz_completed', { score: computeScore(), phase: currentPhase() });
+    show('screen-lead', '#lead-title');
+  }
+}
+
+/* Botões "Continuar o quiz" das telas de copy */
+document.querySelectorAll('[data-continue]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.step = parseInt(btn.dataset.continue, 10);
+    renderQuestion();
+    show('screen-quiz', '#q-title');
+  });
+});
+
+function back(){
+  clearTimeout(state.autoTimer);
+  if (state.step === 0){
+    show('screen-intro', '#intro-title');
+    return;
+  }
+  state.step--;
+  renderQuestion();
+  show('screen-quiz', '#q-title');
+}
+
+el.btnNext.addEventListener('click', next);
+el.btnBack.addEventListener('click', back);
+
+$('#btn-start').addEventListener('click', () => {
+  if (!state.started){
+    state.started = true;
+    track('quiz_started');
+  }
+  state.step = 0;
+  renderQuestion();
+  show('screen-quiz', '#q-title');
+});
+
+/* =========================================================
+   8. PONTUAÇÃO
+   ========================================================= */
+function computeScore(){
+  return QUESTIONS.reduce((sum, q, i) => {
+    if (!q.scored || state.answers[i] === null) return sum;
+    return sum + q.options[state.answers[i]].points;
+  }, 0);
+}
+
+function currentPhase(){
+  const a = state.answers[0];
+  return a === null ? null : QUESTIONS[0].options[a].phase;
+}
+
+function tierFor(score){
+  return TIERS.find(t => score >= t.min && score <= t.max) || TIERS[0];
+}
+
+/* =========================================================
+   9. CAPTURA DE LEAD (opcional — nunca bloqueia o resultado)
+   ========================================================= */
+const leadForm = $('#lead-form');
+const fName = $('#lead-name');
+const fWhats = $('#lead-whats');
+const fEmail = $('#lead-email');
+const fConsent = $('#lead-consent');
+
+const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim());
+// celular brasileiro: 10 dígitos (fixo antigo) a 11 (DDD + 9 dígitos)
+const isPhone = (v) => {
+  const d = v.replace(/\D/g,'');
+  return d.length === 10 || d.length === 11;
+};
+
+/* Máscara de telefone: (11) 90000-0000 — formata enquanto digita */
+function maskPhone(v){
+  const d = v.replace(/\D/g,'').slice(0,11);
+  if (d.length === 0) return '';
+  if (d.length <= 2)  return '(' + d;
+  if (d.length <= 6)  return '(' + d.slice(0,2) + ') ' + d.slice(2);
+  if (d.length <= 10) return '(' + d.slice(0,2) + ') ' + d.slice(2,6) + '-' + d.slice(6);
+  return '(' + d.slice(0,2) + ') ' + d.slice(2,7) + '-' + d.slice(7);
+}
+fWhats.addEventListener('input', (e) => {
+  const pos = e.target.selectionStart === e.target.value.length;
+  e.target.value = maskPhone(e.target.value);
+  if (pos) e.target.setSelectionRange(e.target.value.length, e.target.value.length);
+});
+
+function setError(input, errId, show){
+  const err = $('#' + errId);
+  if (err) err.classList.toggle('show', show);
+  if (input) input.setAttribute('aria-invalid', show ? 'true' : 'false');
+  return !show;
+}
+
+leadForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const whatsVal = fWhats.value.trim();
+  const emailVal = fEmail.value.trim();
+
+  const nameOk  = setError(fName,  'err-name',  fName.value.trim().length < 2);
+  const whatsOk = setError(fWhats, 'err-whats', !isPhone(whatsVal));
+  // e-mail é opcional: só valida se a pessoa digitou algo
+  const emailOk = setError(fEmail, 'err-email', emailVal !== '' && !isEmail(emailVal));
+  const consentOk = setError(null, 'err-consent', !fConsent.checked);
+  if (fConsent) fConsent.setAttribute('aria-invalid', consentOk ? 'false' : 'true');
+
+  if (!nameOk){ fName.focus(); return; }
+  if (!whatsOk){ fWhats.focus(); return; }
+  if (!emailOk){ fEmail.focus(); return; }
+  if (!consentOk){ fConsent.focus(); return; }
+
+  state.lead = {
+    name: fName.value.trim(),
+    whatsapp: whatsVal,
+    email: emailVal,
+    consent: true,
+    skipped: false
+  };
+
+  track('lead_submitted', {
+    tem_email: emailVal !== '',
+    score: computeScore(),
+    phase: currentPhase()
+  });
+  // Envie state.lead para seu CRM/e-mail aqui, se desejar.
+
+  runLoading();
+});
+
+// limpa o erro assim que a pessoa corrige o campo
+[[fName,'#err-name'], [fWhats,'#err-whats'], [fEmail,'#err-email']].forEach(([input, errSel]) => {
+  input.addEventListener('input', () => {
+    input.setAttribute('aria-invalid','false');
+    $(errSel).classList.remove('show');
+  });
+});
+fConsent.addEventListener('change', () => $('#err-consent').classList.remove('show'));
+
+$('#btn-skip').addEventListener('click', () => {
+  state.lead = { name:'', whatsapp:'', email:'', consent:false, skipped:true };
+  track('lead_skipped', { score: computeScore(), phase: currentPhase() });
+  runLoading();
+});
+
+/* =========================================================
+   10. TELA DE PROCESSAMENTO (~2,2s)
+   ========================================================= */
+function runLoading(){
+  show('screen-loading', '#loading-msg');
+  let i = 0;
+  el.loadingMsg.textContent = LOADING_MSGS[0];
+
+  const cycle = setInterval(() => {
+    i++;
+    if (i < LOADING_MSGS.length) el.loadingMsg.textContent = LOADING_MSGS[i];
+  }, 600);
+
+  setTimeout(() => {
+    clearInterval(cycle);
+    renderResult();
+  }, 2200);
+}
+
+/* =========================================================
+   11. RESULTADO
+   ========================================================= */
+function renderResult(){
+  const score = computeScore();
+  const tier = tierFor(score);
+  const phase = currentPhase();
+  const card = $('#result-card');
+
+  card.style.setProperty('--tier', tier.accent);
+  card.style.setProperty('--tier-soft', tier.soft);
+  card.style.setProperty('--tier-text', tier.text);
+
+  $('#tier-eyebrow').textContent = 'Seu diagnóstico';
+  $('#tier-name').textContent = tier.name;
+
+  const greeting = $('#tier-greeting');
+  greeting.textContent = state.lead.name
+    ? state.lead.name + ', aqui está o diagnóstico de vocês.'
+    : 'Aqui está o diagnóstico de vocês.';
+
+  $('#score-value').textContent = String(score);
+  $('#score-label').textContent = 'Nível de preparação';
+  $('#gauge-img').setAttribute('aria-label',
+    'Pontuação ' + score + ' de 21. Perfil: ' + tier.name + '.');
+
+  $('#tier-message').textContent = tier.message;
+  $('#phase-note').textContent = phase ? PHASE_NOTES[phase] : '';
+  $('#tier-risk').textContent = tier.risk;
+
+  const list = $('#tier-priorities');
+  list.innerHTML = '';
+  tier.priorities.forEach((p, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = '<span class="num">' + (i+1) + '</span><span>' + p + '</span>';
+    list.appendChild(li);
+  });
+
+  $('#tier-bridge').innerHTML = tier.bridge;
+
+  el.sales.hidden = false;
+  show('screen-result', '#tier-name');
+
+  // anima o medidor após a troca de tela
+  setTimeout(() => {
+    $('#gauge-fill').style.width = Math.max(3, Math.round((score / 21) * 100)) + '%';
+  }, 140);
+
+  track('result_viewed', { score: score, tier: tier.name, phase: phase });
+  observeOffer();
+}
+
+$('#btn-restart').addEventListener('click', () => {
+  clearTimeout(state.autoTimer);
+  state.step = 0;
+  state.answers = new Array(QUESTIONS.length).fill(null);
+  state.lead = { name:'', whatsapp:'', email:'', consent:false, skipped:false };
+  state.started = false;      // nova tentativa dispara quiz_started de novo
+  state.seenInterludes = {};  // e volta a mostrar as telas de copy
+  leadForm.reset();
+  $('#gauge-fill').style.width = '0';
+  el.sales.hidden = true;
+  renderQuestion();
+  show('screen-intro', '#intro-title');
+});
+
+/* =========================================================
+   12. ACORDEÕES (objeções + FAQ)
+   ========================================================= */
+document.querySelectorAll('.acc-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.acc-item');
+    const group = btn.closest('[data-accordion]');
+    const open = item.dataset.open === 'true';
+
+    // fecha os irmãos
+    group.querySelectorAll('.acc-item').forEach(sib => {
+      sib.dataset.open = 'false';
+      sib.querySelector('.acc-btn').setAttribute('aria-expanded','false');
+    });
+
+    if (!open){
+      item.dataset.open = 'true';
+      btn.setAttribute('aria-expanded','true');
+      if (group.dataset.accordion === 'faq'){
+        track('faq_opened', { question: btn.textContent.trim() });
+      }
+    }
+  });
+});
+
+/* =========================================================
+   13. CHECKOUT — todos os botões usam CHECKOUT_URL
+   ========================================================= */
+document.querySelectorAll('[data-checkout]').forEach(link => {
+  link.href = CHECKOUT_URL;
+  link.addEventListener('click', () => {
+    track('checkout_clicked', {
+      origem: link.dataset.cta || 'desconhecida',
+      price: 67.90,
+      currency: 'BRL',
+      score: computeScore(),
+      tier: tierFor(computeScore()).name
+    });
+  });
+});
+
+/* =========================================================
+   14. offer_viewed — dispara quando a oferta entra na tela
+   ========================================================= */
+let offerTracked = false;
+function observeOffer(){
+  const offer = $('#offer');
+  if (!offer || offerTracked || !('IntersectionObserver' in window)) return;
+  // threshold 0 + rootMargin: dispara assim que a seção entra de verdade
+  // na tela. Uma fração fixa (ex.: 0.35) nunca seria atingida no celular,
+  // onde a seção é bem mais alta que a janela.
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !offerTracked){
+        offerTracked = true;
+        track('offer_viewed', { price: 67.90, currency: 'BRL' });
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -120px 0px' });
+  io.observe(offer);
+}
+
+/* =========================================================
+   15. INICIALIZAÇÃO
+   ========================================================= */
+$('#year').textContent = String(new Date().getFullYear());
+renderQuestion();
+
+})();
+</script>
+</body>
+</html>
