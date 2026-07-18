@@ -340,13 +340,11 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
   accent-color:var(--green);cursor:pointer;
 }
 
-.skip{
-  display:block;width:100%;text-align:center;
-  margin-top:16px;font-size:.9rem;font-weight:700;
-  color:var(--text-soft);text-decoration:underline;
-  text-underline-offset:3px;padding:8px;
+.lead-trust{
+  display:flex;gap:10px;align-items:flex-start;
+  margin-top:18px;font-size:.85rem;color:var(--text-soft);line-height:1.5;
 }
-.skip:hover{color:var(--green)}
+.lead-trust svg{width:18px;height:18px;flex:none;color:var(--green);margin-top:2px}
 
 /* ---------- Processando ---------- */
 .loading{text-align:center;padding:56px 20px}
@@ -628,6 +626,68 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
   margin-bottom:22px;
 }
 .copyright{font-size:.83rem;color:var(--text-soft)}
+
+/* ---------- Ancoragem de preço ---------- */
+.price-flag{
+  display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--white);background:var(--terracota-cta);
+  padding:6px 15px;border-radius:999px;margin-bottom:16px;
+}
+.value-anchor{list-style:none;text-align:left;margin:0 0 24px;display:flex;flex-direction:column;gap:10px}
+.value-anchor li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  font-size:.92rem;color:var(--text-soft);
+  padding-bottom:10px;border-bottom:1px dashed var(--line);
+}
+.value-anchor li b{font-weight:800;color:var(--text-soft);white-space:nowrap}
+.value-anchor .value-anchor-win{color:var(--green-deep);border-bottom:none}
+.value-anchor .value-anchor-win span{font-weight:800}
+.value-anchor .value-anchor-win b{color:var(--green);font-size:1.08rem}
+.price-main{margin-bottom:22px}
+.price-old{font-size:1rem;color:var(--text-soft);font-weight:700;margin-bottom:2px}
+.price-old s{color:var(--brick);text-decoration-thickness:2px}
+.price-installments{font-size:1rem;color:var(--text-soft);font-weight:700;margin-top:8px}
+.price-installments strong{color:var(--green-deep)}
+.price-risk{
+  display:flex;gap:9px;align-items:center;justify-content:center;
+  margin-top:16px;font-size:.88rem;font-weight:700;color:var(--green-deep);
+  background:var(--mint-soft);border-radius:var(--radius-sm);padding:12px 16px;line-height:1.4;
+}
+.price-risk svg{width:20px;height:20px;flex:none;color:var(--green)}
+
+/* ---------- Depoimentos ---------- */
+.testimonials{display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:800px){.testimonials{grid-template-columns:repeat(3,1fr)}}
+.testimonial{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:26px 24px;display:flex;flex-direction:column;gap:14px;
+  position:relative;
+}
+.testimonial .stars{display:flex;gap:3px;color:var(--gold)}
+.testimonial .stars svg{width:18px;height:18px}
+.testimonial-quote{font-weight:700;color:var(--text);font-size:1.02rem;line-height:1.55;flex:1}
+.testimonial-person{display:flex;align-items:center;gap:12px;margin-top:2px}
+.testimonial-avatar{
+  width:44px;height:44px;border-radius:50%;flex:none;
+  background:var(--mint-soft);display:grid;place-items:center;color:var(--green);
+}
+.testimonial-avatar svg{width:24px;height:24px}
+.testimonial-name{font-weight:800;color:var(--green-deep);font-size:.95rem}
+.testimonial-role{font-size:.82rem;color:var(--text-soft);font-weight:700}
+.testimonial-tag{
+  position:absolute;top:14px;right:14px;font-size:.64rem;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--brick);
+  background:var(--terracota-soft);padding:4px 9px;border-radius:999px;
+}
+.testimonials-note{
+  display:flex;gap:11px;align-items:flex-start;max-width:720px;margin:28px auto 0;
+  font-size:.85rem;line-height:1.6;color:var(--text-soft);
+}
+.testimonials-note svg{width:19px;height:19px;flex:none;color:var(--green);margin-top:2px}
+
+/* ---------- Preço no CTA final ---------- */
+.final-price s{color:#A9C0B6;font-weight:700}
+.final-parc{display:block;font-size:1.05rem;font-weight:700;color:#C9DAD2;margin-top:6px}
 </style>
 
 <script type="application/ld+json">
@@ -983,8 +1043,8 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
       <div class="wrap wrap-narrow" style="padding:0;max-width:560px">
         <div class="quiz-card">
           <div class="bar" aria-hidden="true"><span style="width:100%"></span></div>
-          <h2 id="lead-title">Seu resultado está quase pronto</h2>
-          <p class="q-sub" style="margin-top:8px">Preencha seus dados para receber o diagnóstico personalizado e continuar para o plano recomendado.</p>
+          <h2 id="lead-title">Seu diagnóstico está pronto. Falta só um passo.</h2>
+          <p class="q-sub" style="margin-top:8px">Preencha abaixo para liberar o resultado personalizado com as 3 prioridades da sua família — e o plano recomendado para começar.</p>
 
           <form id="lead-form" novalidate>
             <div class="field">
@@ -1017,7 +1077,10 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
             </button>
           </form>
 
-          <button class="skip" id="btn-skip" type="button">Prefiro ver apenas o resultado</button>
+          <p class="lead-trust">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Seus dados estão seguros e são usados só para enviar seu resultado e dicas práticas. Sem spam — você cancela quando quiser.</span>
+          </p>
         </div>
       </div>
     </section>
@@ -1221,17 +1284,120 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
   </section>
 
   <!-- Preço -->
-  <section class="section">
+  <section class="section" id="preco">
     <div class="wrap">
       <div class="price-card">
-        <p class="price-top">Acesso ao guia completo</p>
-        <p class="price-value">R$ 67,90</p>
-        <p class="price-note">Menos do que muitas famílias gastam em uma compra por impulso para o enxoval — e com potencial para evitar centenas de reais em escolhas desnecessárias.</p>
+        <!-- CONFIRME: "Oferta de lançamento" só deve ficar se o preço vai mesmo subir depois. -->
+        <span class="price-flag">Oferta de lançamento</span>
+        <p class="price-top">Acesso completo e vitalício ao guia</p>
+
+        <!-- Ancoragem de valor: quanto custa NÃO ter um plano -->
+        <ul class="value-anchor">
+          <li><span>Uma consulta financeira individual</span><b>R$ 300+</b></li>
+          <li><span>Enxoval comprado por impulso, sem plano</span><b>R$ 200 a R$ 500</b></li>
+          <li class="value-anchor-win"><span>O guia completo, pra sempre</span><b>R$ 67,90</b></li>
+        </ul>
+
+        <div class="price-main">
+          <!-- CONFIRME: R$ 97 precisa ser um preço cheio real (senão é propaganda enganosa). -->
+          <p class="price-old">de <s>R$ 97</s> por apenas</p>
+          <p class="price-value">R$ 67,90</p>
+          <!-- CONFIRME: ajuste "12x de R$ 6,79" para o parcelamento real do seu checkout. -->
+          <p class="price-installments">ou <strong>12x de R$ 6,79</strong> no cartão</p>
+        </div>
+
         <a class="btn btn-buy btn-block" data-checkout data-cta="bloco_preco" href="#">
-          Quero me preparar por R$ 67,90
+          Quero garantir meu acesso agora
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <p class="microcopy">Acesso ao ebook digital após a confirmação do pagamento.</p>
+
+        <p class="price-risk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Garantia incondicional de 7 dias. Não serviu pra vocês? Devolvemos 100% do valor.</span>
+        </p>
+        <p class="microcopy">Pagamento único • Acesso imediato ao ebook em PDF após a confirmação.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DEPOIMENTOS
+       ⚠️ SUBSTITUA os textos "[...]" e os nomes por depoimentos REAIS
+       de clientes/leitores (com autorização). Depoimento inventado é
+       propaganda enganosa (CDC/CONAR) e pode derrubar seus anúncios.
+       Depois de preencher, apague a tag <span class="testimonial-tag">.
+       ============================================================ -->
+  <section class="section section-white" id="depoimentos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Quem já se organizou</span>
+        <h2>Famílias que trocaram a preocupação por um plano</h2>
+        <p class="lead">Histórias de quem usou o guia para chegar mais tranquilo à chegada do bebê.</p>
+      </div>
+
+      <div class="testimonials">
+        <figure class="testimonial">
+          <span class="testimonial-tag">Exemplo</span>
+          <div class="stars" role="img" aria-label="5 de 5 estrelas">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">“[Cole aqui o depoimento real de uma cliente — de preferência contando o antes e o depois: o que a preocupava e o que mudou depois de organizar as contas com o guia.]”</blockquote>
+          <figcaption class="testimonial-person">
+            <span class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span>
+              <span class="testimonial-name">[Nome da cliente]</span><br>
+              <span class="testimonial-role">[contexto — ex.: mãe de primeira viagem, 2º trimestre]</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <span class="testimonial-tag">Exemplo</span>
+          <div class="stars" role="img" aria-label="5 de 5 estrelas">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">“[Cole aqui outro depoimento real — bom quando fala de um resultado concreto: quanto conseguiu guardar, um gasto que evitou, um benefício que descobriu.]”</blockquote>
+          <figcaption class="testimonial-person">
+            <span class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span>
+              <span class="testimonial-name">[Nome do cliente]</span><br>
+              <span class="testimonial-role">[contexto — ex.: pai de primeira viagem]</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial">
+          <span class="testimonial-tag">Exemplo</span>
+          <div class="stars" role="img" aria-label="5 de 5 estrelas">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 15 9l7 .5-5.5 4.5L18 21l-6-3.8L6 21l1.5-7L2 9.5 9 9Z"/></svg>
+          </div>
+          <blockquote class="testimonial-quote">“[Cole aqui um terceiro depoimento real — funciona bem quando quebra uma objeção: ‘achei que era só pra quem ganha muito’, ‘não entendo de finanças’, etc.]”</blockquote>
+          <figcaption class="testimonial-person">
+            <span class="testimonial-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <span>
+              <span class="testimonial-name">[Nome da cliente]</span><br>
+              <span class="testimonial-role">[contexto — ex.: grávida do 1º filho]</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="testimonials-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <span>Use apenas depoimentos verdadeiros, com autorização de quem escreveu. Prints reais de conversas (WhatsApp/Instagram) costumam converter ainda mais — se preferir, dá para trocar estes cards por imagens.</span>
+      </p>
     </div>
   </section>
 
@@ -1402,14 +1568,15 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
   <section class="section section-green">
     <div class="wrap">
       <div class="final">
-        <h2>O bebê não precisa chegar junto com o aperto financeiro</h2>
-        <p class="lead">Vocês não precisam prever tudo. Precisam apenas começar com um plano claro, possível e adaptado à realidade da família.</p>
-        <p class="final-price">R$ 67,90</p>
+        <span class="eyebrow" style="background:rgba(255,255,255,.14);color:#fff">Cada semana conta</span>
+        <h2>O bebê tem data pra chegar. Seu plano precisa chegar antes.</h2>
+        <p class="lead">Preparação financeira não espera “sobrar tempo” — porque ele não sobra. Cada semana que passa é uma decisão a menos que dá pra tomar com calma. Comece hoje, no seu ritmo, com um plano claro e possível.</p>
+        <p class="final-price">de <s>R$ 97</s> por R$ 67,90 <span class="final-parc">ou 12x de R$ 6,79 no cartão</span></p>
         <a class="btn btn-buy" data-checkout data-cta="cta_final" href="#">
-          Quero organizar a chegada do meu bebê
+          Quero garantir meu acesso agora
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:19px;height:19px" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <p class="microcopy" style="color:#A9C0B6">Um passo simples hoje pode trazer muito mais tranquilidade nos próximos meses.</p>
+        <p class="microcopy" style="color:#A9C0B6">Garantia de 7 dias • Acesso imediato • Pagamento único</p>
       </div>
     </div>
   </section>
@@ -1461,7 +1628,7 @@ const CHECKOUT_READY = !!CHECKOUT_URL && CHECKOUT_URL !== 'CHECKOUT_URL';
    preenchidos no CONFIG. O track() replica cada evento para as
    duas ferramentas (e no console, útil em desenvolvimento).
    Eventos: quiz_started, quiz_question_answered, quiz_completed,
-   lead_submitted, lead_skipped, result_viewed, offer_viewed,
+   lead_submitted, result_viewed, offer_viewed,
    checkout_clicked, faq_opened, interlude_viewed
    ========================================================= */
 function loadGA4(id){
@@ -1973,12 +2140,6 @@ leadForm.addEventListener('submit', (e) => {
   });
 });
 fConsent.addEventListener('change', () => $('#err-consent').classList.remove('show'));
-
-$('#btn-skip').addEventListener('click', () => {
-  state.lead = { name:'', whatsapp:'', email:'', consent:false, skipped:true };
-  track('lead_skipped', { score: computeScore(), phase: currentPhase() });
-  runLoading();
-});
 
 /* =========================================================
    10. TELA DE PROCESSAMENTO (~2,2s)

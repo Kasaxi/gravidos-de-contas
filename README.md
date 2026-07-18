@@ -51,6 +51,23 @@ Trocar os placeholders no rodapé do `index.html`:
 | `TERMS_URL` | Link dos termos de uso |
 | `CONTACT_URL` | Link/página de contato |
 
+### 3. Elementos de venda a revisar
+
+A página usa gatilhos de venda que **precisam refletir a realidade** — no
+`index.html`, procure pelos comentários `CONFIRME` e pela tag `Exemplo`:
+
+- **Depoimentos** — a seção está pronta com espaços `[...]` e a etiqueta
+  `Exemplo`. Preencha com depoimentos **reais** (com autorização de quem
+  escreveu) e apague as etiquetas. Depoimento inventado é propaganda enganosa
+  (CDC/CONAR) e pode derrubar a página e os anúncios. Prints reais de conversas
+  convertem ainda mais.
+- **"de R$ 97"** — use um preço "cheio" que seja **verdadeiro**. Anunciar um
+  valor que nunca foi praticado é propaganda enganosa.
+- **"Oferta de lançamento"** — mantenha só se o preço realmente for subir depois.
+- **"12x de R$ 6,79"** — ajuste para o parcelamento real do seu checkout.
+- **Garantia de 7 dias** — honre a devolução. Em compras online isso também é
+  direito do consumidor (CDC, art. 49).
+
 ## Arquivos
 
 - **`index.html`** — a página inteira (HTML, CSS e JS, sem dependências além da fonte).
