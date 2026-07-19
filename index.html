@@ -707,6 +707,17 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 .countdown[hidden]{display:none}
 .cd-label{font-size:.78rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--brick)}
 .cd-clock{font-size:1.5rem;font-weight:800;color:var(--brick);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.price-after{font-size:.9rem;font-weight:700;color:var(--brick);margin-top:10px}
+.price-bonus{
+  display:flex;gap:10px;align-items:flex-start;text-align:left;
+  background:var(--gold-soft);border:1px solid #EBD9B5;border-radius:var(--radius-sm);
+  padding:12px 15px;margin-bottom:16px;font-size:.92rem;color:var(--text);line-height:1.5;
+}
+.price-bonus svg{width:20px;height:20px;flex:none;color:var(--gold);margin-top:1px}
+.price-bonus strong{color:var(--green-deep)}
+/* fim da oferta: garante que os elementos de lançamento realmente somem */
+.price-flag[hidden],.price-old[hidden],.price-installments[hidden],
+.price-after[hidden],.price-bonus[hidden],.countdown[hidden]{display:none}
 </style>
 
 <script type="application/ld+json">
@@ -1308,10 +1319,9 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
   <section class="section" id="preco">
     <div class="wrap">
       <div class="price-card">
-        <!-- CONFIRME: "Oferta de lançamento" só deve ficar se o preço vai mesmo subir depois. -->
-        <span class="price-flag">Oferta de lançamento</span>
+        <span class="price-flag">Oferta de lançamento · por tempo limitado</span>
 
-        <!-- Contador: aparece só quando CONFIG.offerDeadline tiver uma data real. -->
+        <!-- Contador da oferta: conta até CONFIG.offerDeadline (data real). -->
         <div class="countdown" id="countdown" hidden aria-live="polite">
           <span class="cd-label">A oferta de lançamento termina em</span>
           <span class="cd-clock" id="cd-clock">--:--:--</span>
@@ -1332,7 +1342,14 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
           <p class="price-value">R$ 67,90</p>
           <!-- CONFIRME: ajuste "12x de R$ 7,02" para o parcelamento real do seu checkout. -->
           <p class="price-installments">ou <strong>12x de R$ 7,02</strong> no cartão</p>
+          <p class="price-after" id="price-after">Depois do lançamento, o valor sobe para <strong>R$ 97</strong>.</p>
         </div>
+
+        <!-- Bônus REAL de lançamento (texto vem de CONFIG.bonus). Some quando a oferta acaba. -->
+        <p class="price-bonus" id="price-bonus" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M12 8C12 8 11 3 8.5 3a2.5 2.5 0 0 0 0 5H12zM12 8s1-5 3.5-5a2.5 2.5 0 0 1 0 5H12z"/></svg>
+          <span><strong>Bônus de lançamento:</strong> <span id="bonus-text"></span> — grátis só até o fim da oferta.</span>
+        </p>
 
         <a class="btn btn-buy btn-block" data-checkout data-cta="bloco_preco" href="#">
           Quero garantir meu acesso agora
@@ -1630,7 +1647,9 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 const CONFIG = {
   checkoutUrl: 'https://pay.cakto.com.br/y6pagop_988893',
   leadWebhookUrl: 'https://script.google.com/macros/s/AKfycbzCfn0vtdqdaVw-Detc2ILMAuwplJO5RZEm8hLjN1dEcqgpHxEVRYEj0MUaN9a7mbgdUA/exec',
-  offerDeadline: '',    // data-limite REAL da oferta (ex.: '2026-08-31T23:59:59'); vazio = sem contador
+  offerDeadline: '2026-08-02T23:59:59',   // data-limite REAL da oferta de lançamento — CONFIRME/alinhe com o início dos anúncios
+  fullPrice: 'R$ 97',                      // quando a oferta acaba, a página passa a mostrar este preço (suba o Cakto junto)
+  bonus: 'Checklist do Enxoval Essencial (PDF)',  // bônus REAL de lançamento — precisa existir e ser entregue; vazio = esconde
   ga4Id: '',
   metaPixelId: ''
 };
@@ -2379,26 +2398,43 @@ function observeOffer(){
 }
 
 /* =========================================================
-   15. CONTADOR DA OFERTA (aparece só com offerDeadline preenchida)
+   15. OFERTA DE LANÇAMENTO (contador + bônus + fim automático)
+   Tudo gira em torno de uma data-limite REAL (CONFIG.offerDeadline):
+   antes dela, mostra contador/bônus/preço de lançamento; depois,
+   esconde tudo e passa a exibir o preço cheio (CONFIG.fullPrice).
    ========================================================= */
-function initCountdown(){
+function endLaunch(){
+  ['#countdown', '.price-flag', '#price-after', '#price-bonus', '.price-old', '.price-installments']
+    .forEach((sel) => document.querySelectorAll(sel).forEach((e) => { e.hidden = true; }));
+  if (CONFIG.fullPrice){
+    document.querySelectorAll('.price-value').forEach((e) => { e.textContent = CONFIG.fullPrice; });
+    const fp = $('.final-price');
+    if (fp) fp.textContent = CONFIG.fullPrice;
+  }
+}
+
+function initLaunch(){
+  // Bônus de lançamento (some quando a oferta acaba)
+  const bonusEl = $('#price-bonus');
+  const bonusText = (CONFIG.bonus || '').trim();
+  if (bonusEl){
+    if (bonusText){ $('#bonus-text').textContent = bonusText; bonusEl.hidden = false; }
+    else bonusEl.hidden = true;
+  }
+
   const box = $('#countdown');
-  if (!box || !CONFIG.offerDeadline) return;
+  const end = CONFIG.offerDeadline ? new Date(CONFIG.offerDeadline).getTime() : NaN;
+  if (!box || isNaN(end)) return;   // sem data válida: mantém a oferta padrão, sem contador
+
+  if (Date.now() >= end){ endLaunch(); return; }
+
   const clock = $('#cd-clock');
-  const label = box.querySelector('.cd-label');
-  const end = new Date(CONFIG.offerDeadline).getTime();
-  if (isNaN(end)) return;
   box.hidden = false;
   const timer = setInterval(tick, 1000);
   tick();
   function tick(){
     let diff = Math.floor((end - Date.now()) / 1000);
-    if (diff <= 0){
-      clearInterval(timer);
-      label.textContent = 'Oferta de lançamento';
-      clock.textContent = 'Encerrada';
-      return;
-    }
+    if (diff <= 0){ clearInterval(timer); endLaunch(); return; }
     const d = Math.floor(diff / 86400); diff %= 86400;
     const h = Math.floor(diff / 3600); diff %= 3600;
     const m = Math.floor(diff / 60), s = diff % 60;
@@ -2412,7 +2448,7 @@ function initCountdown(){
    ========================================================= */
 $('#year').textContent = String(new Date().getFullYear());
 renderQuestion();
-initCountdown();
+initLaunch();
 
 })();
 </script>
