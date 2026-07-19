@@ -689,6 +689,24 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 /* ---------- Preço no CTA final ---------- */
 .final-price s{color:#A9C0B6;font-weight:700}
 .final-parc{display:block;font-size:1.05rem;font-weight:700;color:#C9DAD2;margin-top:6px}
+
+/* ---------- Personalização dinâmica do resultado ---------- */
+.personal-note{
+  background:var(--gold-soft);border-left:4px solid var(--gold);
+  border-radius:var(--radius-sm);padding:15px 18px;margin-bottom:24px;
+  font-weight:600;color:var(--text);line-height:1.6;
+}
+.personal-note[hidden]{display:none}
+
+/* ---------- Contador da oferta ---------- */
+.countdown{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:var(--terracota-soft);border:1px solid var(--terracota-light);
+  border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:18px;
+}
+.countdown[hidden]{display:none}
+.cd-label{font-size:.78rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--brick)}
+.cd-clock{font-size:1.5rem;font-weight:800;color:var(--brick);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 </style>
 
 <script type="application/ld+json">
@@ -1125,6 +1143,8 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
 
           <p class="result-msg" id="tier-message"></p>
 
+          <p class="personal-note" id="tier-personal" hidden></p>
+
           <div class="phase-note">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
             <p id="phase-note"></p>
@@ -1290,6 +1310,13 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
       <div class="price-card">
         <!-- CONFIRME: "Oferta de lançamento" só deve ficar se o preço vai mesmo subir depois. -->
         <span class="price-flag">Oferta de lançamento</span>
+
+        <!-- Contador: aparece só quando CONFIG.offerDeadline tiver uma data real. -->
+        <div class="countdown" id="countdown" hidden aria-live="polite">
+          <span class="cd-label">A oferta de lançamento termina em</span>
+          <span class="cd-clock" id="cd-clock">--:--:--</span>
+        </div>
+
         <p class="price-top">Acesso completo e vitalício ao guia</p>
 
         <!-- Ancoragem de valor: quanto custa NÃO ter um plano -->
@@ -1602,6 +1629,8 @@ h3{font-size:clamp(1.1rem,2.6vw,1.3rem)}
    ========================================================= */
 const CONFIG = {
   checkoutUrl: 'https://pay.cakto.com.br/y6pagop_988893',
+  leadWebhookUrl: '',   // URL do app da Web do Google Sheets (Apps Script) — grava os leads
+  offerDeadline: '',    // data-limite REAL da oferta (ex.: '2026-08-31T23:59:59'); vazio = sem contador
   ga4Id: '',
   metaPixelId: ''
 };
@@ -2083,6 +2112,32 @@ function setError(input, errId, show){
   return !show;
 }
 
+/* Grava o lead na planilha (Google Sheets via Apps Script).
+   Fire-and-forget: nunca bloqueia nem atrasa o resultado. */
+function sendLead(){
+  if (!CONFIG.leadWebhookUrl) return;
+  const payload = {
+    nome: state.lead.name,
+    whatsapp: state.lead.whatsapp,
+    email: state.lead.email,
+    consentimento: state.lead.consent ? 'sim' : 'nao',
+    pontuacao: computeScore(),
+    perfil: tierFor(computeScore()).name,
+    fase: currentPhase() || '',
+    respostas: QUESTIONS.map((q, i) =>
+      state.answers[i] != null ? q.options[state.answers[i]].label : '—').join(' | '),
+    origem: 'quiz'
+  };
+  try {
+    fetch(CONFIG.leadWebhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  } catch (e) { /* silencioso: o resultado nunca depende disto */ }
+}
+
 leadForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -2114,7 +2169,7 @@ leadForm.addEventListener('submit', (e) => {
     score: computeScore(),
     phase: currentPhase()
   });
-  // Envie state.lead para seu CRM/e-mail aqui, se desejar.
+  sendLead();   // grava o lead na planilha — não bloqueia o resultado
 
   runLoading();
 });
@@ -2150,6 +2205,35 @@ function runLoading(){
 /* =========================================================
    11. RESULTADO
    ========================================================= */
+/* Inserção dinâmica: usa as respostas para personalizar o diagnóstico. */
+function personalInsight(){
+  const aReserva = state.answers[1];   // pergunta "reserva"
+  const aOnde = state.answers[7];      // pergunta "onde está o dinheiro"
+  if (aReserva == null || aOnde == null) return '';
+
+  const reservaFrase = [
+    'vocês ainda não começaram a reserva do bebê',
+    'vocês já começaram a reserva, mas ainda com menos de R$ 1.000',
+    'vocês já têm entre R$ 1.000 e R$ 4.999 guardados',
+    'vocês já têm R$ 5.000 ou mais reservados'
+  ][aReserva];
+
+  const ondeFrase = [
+    'está misturado na conta corrente',
+    'está na poupança',
+    'está numa conta ou caixinha separada',
+    'está numa opção segura e com liquidez, como Tesouro Selic ou CDB'
+  ][aOnde];
+
+  const remate = aReserva <= 1
+    ? 'O primeiro passo é dar uma meta e um lugar separado para esse dinheiro.'
+    : aReserva === 2
+      ? 'Vocês já têm uma base — agora é afinar a meta e garantir que ele renda com segurança.'
+      : 'Vocês estão à frente da maioria — o foco agora é proteger essa reserva e revisar os detalhes.';
+
+  return 'Pelas suas respostas, ' + reservaFrase + '. Hoje, o que vocês guardam ' + ondeFrase + '. ' + remate;
+}
+
 function renderResult(){
   const score = computeScore();
   const tier = tierFor(score);
@@ -2174,6 +2258,12 @@ function renderResult(){
     'Pontuação ' + score + ' de 21. Perfil: ' + tier.name + '.');
 
   $('#tier-message').textContent = tier.message;
+
+  const elPersonal = $('#tier-personal');
+  const insight = personalInsight();
+  elPersonal.textContent = insight;
+  elPersonal.hidden = !insight;
+
   $('#phase-note').textContent = phase ? PHASE_NOTES[phase] : '';
   $('#tier-risk').textContent = tier.risk;
 
@@ -2289,10 +2379,40 @@ function observeOffer(){
 }
 
 /* =========================================================
-   15. INICIALIZAÇÃO
+   15. CONTADOR DA OFERTA (aparece só com offerDeadline preenchida)
+   ========================================================= */
+function initCountdown(){
+  const box = $('#countdown');
+  if (!box || !CONFIG.offerDeadline) return;
+  const clock = $('#cd-clock');
+  const label = box.querySelector('.cd-label');
+  const end = new Date(CONFIG.offerDeadline).getTime();
+  if (isNaN(end)) return;
+  box.hidden = false;
+  const timer = setInterval(tick, 1000);
+  tick();
+  function tick(){
+    let diff = Math.floor((end - Date.now()) / 1000);
+    if (diff <= 0){
+      clearInterval(timer);
+      label.textContent = 'Oferta de lançamento';
+      clock.textContent = 'Encerrada';
+      return;
+    }
+    const d = Math.floor(diff / 86400); diff %= 86400;
+    const h = Math.floor(diff / 3600); diff %= 3600;
+    const m = Math.floor(diff / 60), s = diff % 60;
+    const pad = (n) => String(n).padStart(2, '0');
+    clock.textContent = (d > 0 ? d + 'd ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s);
+  }
+}
+
+/* =========================================================
+   16. INICIALIZAÇÃO
    ========================================================= */
 $('#year').textContent = String(new Date().getFullYear());
 renderQuestion();
+initCountdown();
 
 })();
 </script>
