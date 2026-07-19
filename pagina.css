@@ -1,0 +1,69 @@
+/* =========================================================
+   Estilo compartilhado das páginas de conteúdo
+   (política de privacidade, termos de uso e contato).
+   A página principal (index.html) tem o próprio CSS embutido.
+   ========================================================= */
+:root{
+  --mint:#78BFA3;--mint-soft:#E4F1EB;--green:#285F4A;--green-deep:#1D4536;
+  --terracota-cta:#C05130;--brick:#AE4B32;--gold-soft:#FAF0DE;
+  --offwhite:#FAF7F2;--text:#37403B;--text-soft:#636D68;--white:#FFFFFF;--line:#E8E2D9;
+  --radius:20px;--radius-sm:14px;--shadow:0 4px 24px rgba(40,95,74,.07);--maxw:820px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--offwhite);color:var(--text);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:var(--green);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--green-deep)}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---------- Cabeçalho ---------- */
+.site-header{background:var(--white);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:15px;padding-bottom:15px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;color:var(--green-deep);font-size:1.1rem}
+.brand:hover{color:var(--green-deep)}
+.brand img{width:32px;height:32px;flex:none}
+.back-link{font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--green)}
+.back-link:hover{color:var(--green-deep)}
+.back-link svg{width:16px;height:16px;flex:none}
+
+/* ---------- Conteúdo ---------- */
+.page{padding:46px 0 64px}
+.page h1{font-size:clamp(1.7rem,4.5vw,2.4rem);color:var(--green-deep);letter-spacing:-.02em;line-height:1.22;margin-bottom:10px;font-weight:800}
+.page .updated{font-size:.85rem;color:var(--text-soft);font-weight:700;margin-bottom:30px}
+.page h2{font-size:1.28rem;color:var(--green-deep);margin:34px 0 12px;letter-spacing:-.01em;font-weight:800}
+.page h3{font-size:1.05rem;color:var(--green-deep);margin:20px 0 8px;font-weight:800}
+.page p{margin-bottom:14px}
+.page ul,.page ol{margin:0 0 16px 22px}
+.page li{margin-bottom:8px}
+.page strong{color:var(--text);font-weight:800}
+.lead-intro{font-size:1.05rem;color:var(--text-soft);margin-bottom:8px}
+
+.note{background:var(--mint-soft);border-left:4px solid var(--mint);border-radius:var(--radius-sm);padding:16px 18px;margin:22px 0;font-size:.95rem;color:var(--green-deep)}
+.placeholder{background:var(--gold-soft);border-radius:4px;padding:1px 7px;font-weight:800;color:#8A6420;font-size:.92em}
+
+/* ---------- Contato ---------- */
+.contact-grid{display:grid;gap:18px;grid-template-columns:1fr;margin-top:6px}
+@media(min-width:640px){.contact-grid{grid-template-columns:1fr 1fr}}
+.contact-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px 26px}
+.contact-card h2{margin:0 0 8px;font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.contact-card h2 svg{width:22px;height:22px;color:var(--green);flex:none}
+.contact-card p{font-size:.95rem;color:var(--text-soft)}
+.contact-num{font-weight:800;color:var(--green-deep);font-size:1.2rem;margin:4px 0 2px}
+.wa-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:var(--white);font-weight:800;padding:14px 24px;border-radius:999px;text-decoration:none;margin-top:12px;box-shadow:0 6px 18px rgba(40,95,74,.28);transition:background-color .2s ease}
+.wa-btn:hover{background:var(--green-deep);color:var(--white)}
+.wa-btn svg{width:20px;height:20px;flex:none}
+
+/* ---------- Rodapé ---------- */
+.site-footer{background:var(--white);border-top:1px solid var(--line);padding:36px 0 32px;margin-top:20px}
+.foot-brand{font-weight:800;color:var(--green-deep);font-size:1.1rem;margin-bottom:12px}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:.9rem;font-weight:700;margin-bottom:18px}
+.foot-links a{color:var(--green);text-decoration:none}
+.foot-links a:hover{text-decoration:underline;text-underline-offset:3px}
+.foot-copy{font-size:.83rem;color:var(--text-soft)}
